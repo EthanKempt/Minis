@@ -14,7 +14,7 @@ namespace Wordle.Pages
 
         public void OnGet()
         {
-
+           
         }
     }
 }
