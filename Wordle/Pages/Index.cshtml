@@ -42,3 +42,12 @@
 
 </style>
 
+<script>
+    document.addEventListener('keyup', (event) => {
+        var name = event.key;
+        if (name === 'Enter' && /*all line 1 is filled*/) {
+            alert('Enter key released');
+        }
+    }, false);
+</script>
+
