@@ -3,11 +3,14 @@
 @{
     ViewData["Title"] = "Home page";
 }
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="jquery.countchar.js"></script>
+
 
 <div class="text-center">
     <h1 class="display-4">Wordle</h1>
 
-    <input type="text" maxlength="1" class="Format line1"> <input type="text" maxlength="1" class="Format line1"> <input type="text" maxlength="1" class="Format line1"> <input type="text" maxlength="1" class="Format line1"> <input type="text" maxlength="1" class="Format line1">
+    <input type="text" maxlength="1" class="Format line1" id="l1b1"> <input type="text" maxlength="1" class="Format line1"> <input type="text" maxlength="1" class="Format line1"> <input type="text" maxlength="1" class="Format line1"> <input type="text" maxlength="1" class="Format line1">
     <p> </p>
     <input type="text" maxlength="1" class="Format line2"> <input type="text" maxlength="1" class="Format line2"> <input type="text" maxlength="1" class="Format line2"> <input type="text" maxlength="1" class="Format line2"> <input type="text" maxlength="1" class="Format line2">
     <p> </p>
@@ -45,8 +48,9 @@
 <script>
     document.addEventListener('keyup', (event) => {
         var name = event.key;
-        if (name === 'Enter' && /*all line 1 is filled*/) {
-            alert('Enter key released');
+        if (name === 'Enter') {
+            var RowFill1 = document.getElementById('l1b1');
+            alert(RowFill1);
         }
     }, false);
 </script>
