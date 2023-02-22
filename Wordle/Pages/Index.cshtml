@@ -10,9 +10,9 @@
 <div class="text-center">
     <h1 class="display-4">Wordle</h1>
 
-    <input type="text" maxlength="1" class="Format line1"> <input type="text" maxlength="1" class="Format line1"> <input type="text" maxlength="1" class="Format line1"> <input type="text" maxlength="1" class="Format line1"> <input type="text" maxlength="1" class="Format line1" id="l1fb">
+    <input type="text" maxlength="1" class="Format line1" id="l1b1"> <input type="text" maxlength="1" class="Format line1" id="l1b2"> <input type="text" maxlength="1" class="Format line1" id="l1b3"> <input type="text" maxlength="1" class="Format line1" id="l1b4"> <input type="text" maxlength="1" class="Format line1" id="l1b5">
     <p> </p>
-    <input type="text" maxlength="1" class="Format line2"> <input type="text" maxlength="1" class="Format line2"> <input type="text" maxlength="1" class="Format line2"> <input type="text" maxlength="1" class="Format line2"> <input type="text" maxlength="1" class="Format line2">
+    <input type="text" maxlength="1" class="Format line2" id="l2b1"> <input type="text" maxlength="1" class="Format line2" id="l2b2"> <input type="text" maxlength="1" class="Format line2" id="l2b3"> <input type="text" maxlength="1" class="Format line2" id="l2b4"> <input type="text" maxlength="1" class="Format line2" id="l2b5">
     <p> </p>
     <input type="text" maxlength="1" class="Format line3"> <input type="text" maxlength="1" class="Format line3"> <input type="text" maxlength="1" class="Format line3"> <input type="text" maxlength="1" class="Format line3"> <input type="text" maxlength="1" class="Format line3">
     <p> </p>
@@ -51,10 +51,17 @@
 </style>
 
 <script>
+    //autoselect next textbox
+
+
+
+
+
+    //submit line
     document.addEventListener('keyup', (event) => {
         var name = event.key;
         if (name === 'Enter') {  //if enter pressed
-            var allLine1 = document.getElementById('l1fb').value;
+            var allLine1 = document.getElementById('l1b5').value;
             if (allLine1 != 0) {
                     alert('hi');
             }
