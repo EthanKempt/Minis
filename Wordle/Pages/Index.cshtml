@@ -10,7 +10,7 @@
 <div class="text-center">
     <h1 class="display-4">Wordle</h1>
 
-    <input type="text" maxlength="1" class="Format line1" id="l1b1"> <input type="text" maxlength="1" class="Format line1"> <input type="text" maxlength="1" class="Format line1"> <input type="text" maxlength="1" class="Format line1"> <input type="text" maxlength="1" class="Format line1">
+    <input type="text" maxlength="1" class="Format line1"> <input type="text" maxlength="1" class="Format line1"> <input type="text" maxlength="1" class="Format line1"> <input type="text" maxlength="1" class="Format line1"> <input type="text" maxlength="1" class="Format line1" id="l1fb">
     <p> </p>
     <input type="text" maxlength="1" class="Format line2"> <input type="text" maxlength="1" class="Format line2"> <input type="text" maxlength="1" class="Format line2"> <input type="text" maxlength="1" class="Format line2"> <input type="text" maxlength="1" class="Format line2">
     <p> </p>
@@ -44,17 +44,19 @@
         font-family: Arial;
     }
 
+    input:focus, textarea:focus, select:focus {
+        outline: none;
+    }
+
 </style>
 
 <script>
     document.addEventListener('keyup', (event) => {
         var name = event.key;
         if (name === 'Enter') {  //if enter pressed
-
-            var RowFill1 = document.getElementById('l1b1').value;   
-
-            if (RowFill1 != 0) {
-                alert('hi');
+            var allLine1 = document.getElementById('l1fb').value;
+            if (allLine1 != 0) {
+                    alert('hi');
             }
         }
     }, false);
