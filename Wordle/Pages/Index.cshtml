@@ -3,21 +3,24 @@
 @{
     ViewData["Title"] = "Home page";
 }
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="jquery.countchar.js"></script>
+
 
 <div class="text-center">
     <h1 class="display-4">Wordle</h1>
 
-    <input type="text" maxlength="1" class="Format line1"> <input type="text" maxlength="1" class="Format line1"> <input type="text" maxlength="1" class="Format line1"> <input type="text" maxlength="1" class="Format line1"> <input type="text" maxlength="1" class="Format line1">
+    <input type="text" maxlength="1" class="Format line1" id="l1b1"> <input type="text" maxlength="1" class="Format line1" id="l1b2"> <input type="text" maxlength="1" class="Format line1" id="l1b3"> <input type="text" maxlength="1" class="Format line1" id="l1b4"> <input type="text" maxlength="1" class="Format line1" id="l1b5">
     <p> </p>
-    <input type="text" maxlength="1" class="Format line2"> <input type="text" maxlength="1" class="Format line2"> <input type="text" maxlength="1" class="Format line2"> <input type="text" maxlength="1" class="Format line2"> <input type="text" maxlength="1" class="Format line2">
+    <input type="text" maxlength="1" class="Format line2" id="l2b1"> <input type="text" maxlength="1" class="Format line2" id="l2b2"> <input type="text" maxlength="1" class="Format line2" id="l2b3"> <input type="text" maxlength="1" class="Format line2" id="l2b4"> <input type="text" maxlength="1" class="Format line2" id="l2b5">
     <p> </p>
-    <input type="text" maxlength="1" class="Format line3"> <input type="text" maxlength="1" class="Format line3"> <input type="text" maxlength="1" class="Format line3"> <input type="text" maxlength="1" class="Format line3"> <input type="text" maxlength="1" class="Format line3">
+    <input type="text" maxlength="1" class="Format line3" id="l3b1"> <input type="text" maxlength="1" class="Format line3" id="l3b2"> <input type="text" maxlength="1" class="Format line3" id="l3b3"> <input type="text" maxlength="1" class="Format line3" id="l3b4"> <input type="text" maxlength="1" class="Format line3">
     <p> </p>
-    <input type="text" maxlength="1" class="Format line4"> <input type="text" maxlength="1" class="Format line4"> <input type="text" maxlength="1" class="Format line4"> <input type="text" maxlength="1" class="Format line4"> <input type="text" maxlength="1" class="Format line4">
+    <input type="text" maxlength="1" class="Format line4" id="l4b1"> <input type="text" maxlength="1" class="Format line4" id="l4b2"> <input type="text" maxlength="1" class="Format line4" id="l4b3"> <input type="text" maxlength="1" class="Format line4" id="l4b4"> <input type="text" maxlength="1" class="Format line4">
     <p> </p>
-    <input type="text" maxlength="1" class="Format line5"> <input type="text" maxlength="1" class="Format line5"> <input type="text" maxlength="1" class="Format line5"> <input type="text" maxlength="1" class="Format line5"> <input type="text" maxlength="1" class="Format line5">
+    <input type="text" maxlength="1" class="Format line5" id="l5b1"> <input type="text" maxlength="1" class="Format line5" id="l5b2"> <input type="text" maxlength="1" class="Format line5" id="l5b3"> <input type="text" maxlength="1" class="Format line5" id="l5b4"> <input type="text" maxlength="1" class="Format line5">
     <p> </p>
-    <input type="text" maxlength="1" class="Format line6"> <input type="text" maxlength="1" class="Format line6"> <input type="text" maxlength="1" class="Format line6"> <input type="text" maxlength="1" class="Format line6"> <input type="text" maxlength="1" class="Format line6">
+    <input type="text" maxlength="1" class="Format line6" id="l6b1"> <input type="text" maxlength="1" class="Format line6" id="l6b2"> <input type="text" maxlength="1" class="Format line6" id="l6b3"> <input type="text" maxlength="1" class="Format line6" id="l6b4"> <input type="text" maxlength="1" class="Format line6">
 
 </div>
 <style>
@@ -25,6 +28,7 @@
         font-family: Stencil Std;
         font-weight: 900;
     }
+
     .Format {
         width: 50px;
         height: 50px;
@@ -34,20 +38,33 @@
         padding-right: 10px;
         caret-color: transparent;
         display: inline;
-        border: 2px solid rgba(122, 122, 122, 0.45); 
+        border: 2px solid rgba(122, 122, 122, 0.45);
         text-align: center;
         font-size: 35px;
         font-family: Arial;
     }
 
+    input:focus, textarea:focus, select:focus {
+        outline: none;
+    }
+
 </style>
 
 <script>
+    //autoselect next textbox
+
+
+
+
+
+    //submit line
     document.addEventListener('keyup', (event) => {
         var name = event.key;
-        if (name === 'Enter' && /*all line 1 is filled*/) {
-            alert('Enter key released');
+        if (name === 'Enter') {  //if enter pressed
+            var allLine1 = document.getElementById('l1b5').value;
+            if (allLine1 != 0) {
+                    alert('hi');
+            }
         }
     }, false);
 </script>
-
