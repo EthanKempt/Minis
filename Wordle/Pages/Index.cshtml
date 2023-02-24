@@ -42,6 +42,7 @@
         text-align: center;
         font-size: 35px;
         font-family: Arial;
+        pointer-events: none; 
     }
 
     input:focus, textarea:focus, select:focus {
@@ -51,22 +52,19 @@
 </style>
 
 <script>
+
+
+    //fill a box
     document.addEventListener('keyup', (event) => {
         var key = event.key;
-        if (key == "a") {
-            var box = document.getElementById('l1b1').value = key;
+        var input = document.getElementById('l1b1');
+        var size = key.length;
+
+        if (size == 1 && key.match(/[a-z]/)) {
+            var upper = key.toUpperCase();
+            var box = document.getElementById('l1b1').value = upper;
         }
     }, false);
 
 
-    //submit line
-    //document.addEventListener('keyup', (event) => {
-    //    var name = event.key;
-    //    if (name === 'Enter') {  //if enter pressed
-    //        var allLine1 = document.getElementById('l1b5').value;
-    //        if (allLine1 != 0) {
-    //                alert('hi');
-    //        }
-    //    }
-    //}, false);
 </script>
