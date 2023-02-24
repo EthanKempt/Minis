@@ -34,15 +34,15 @@
         height: 50px;
         padding-top: 5px;
         padding-bottom: 5px;
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-left: 00px;
+        padding-right: 00px;
         caret-color: transparent;
         display: inline;
         border: 2px solid rgba(122, 122, 122, 0.45);
         text-align: center;
         font-size: 35px;
         font-family: Arial;
-        pointer-events: none; 
+        pointer-events: none;
     }
 
     input:focus, textarea:focus, select:focus {
@@ -55,16 +55,25 @@
 
 
     //fill a box
+           var current = 1;
     document.addEventListener('keyup', (event) => {
         var key = event.key;
-        var input = document.getElementById('l1b1');
         var size = key.length;
 
         if (size == 1 && key.match(/[a-z]/)) {
             var upper = key.toUpperCase();
-            var box = document.getElementById('l1b1').value = upper;
+            if (current != 6) {
+            var box = document.getElementById(move1()).value = upper;
+            }
         }
     }, false);
 
+    //move on type
+    function move1(){
+        var input = 'l1b' + current;
+        current++;
+        return input;
+    }
 
+    //backspace
 </script>
