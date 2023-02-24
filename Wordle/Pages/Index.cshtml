@@ -34,14 +34,15 @@
         height: 50px;
         padding-top: 5px;
         padding-bottom: 5px;
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-left: 00px;
+        padding-right: 00px;
         caret-color: transparent;
         display: inline;
         border: 2px solid rgba(122, 122, 122, 0.45);
         text-align: center;
         font-size: 35px;
         font-family: Arial;
+        pointer-events: none;
     }
 
     input:focus, textarea:focus, select:focus {
@@ -51,20 +52,42 @@
 </style>
 
 <script>
-    //autoselect next textbox
 
 
-
-
-
-    //submit line
+    //fill a box
+           var current = 1;
     document.addEventListener('keyup', (event) => {
-        var name = event.key;
-        if (name === 'Enter') {  //if enter pressed
-            var allLine1 = document.getElementById('l1b5').value;
-            if (allLine1 != 0) {
-                    alert('hi');
+        var key = event.key;
+        var size = key.length;
+
+        if (size == 1 && key.match(/[a-z]/)) {
+            var upper = key.toUpperCase();
+            if (current != 6) {
+            var box = document.getElementById(move1()).value = upper;
             }
         }
+
+        if (key === 'Backspace'){
+            backspace();
+        }
+            
+            
     }, false);
+
+    //move on type
+    function move1(){
+        var input = 'l1b' + current;
+        current++;
+        return input;
+    }
+
+    //backspace
+    function backspace(){
+        var input = 'l1b' + current;
+        alert(input);
+        var del = document.getElementById(input).value = 0;
+        current -= 1;
+        alert(current);
+        return input;
+    }
 </script>
