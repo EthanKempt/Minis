@@ -66,6 +66,12 @@
             var box = document.getElementById(move1()).value = upper;
             }
         }
+
+        if (key === 'Backspace'){
+            backspace();
+        }
+            
+            
     }, false);
 
     //move on type
@@ -76,4 +82,12 @@
     }
 
     //backspace
+    function backspace(){
+        var input = 'l1b' + current;
+        alert(input);
+        var del = document.getElementById(input).value = 0;
+        current -= 1;
+        alert(current);
+        return input;
+    }
 </script>
