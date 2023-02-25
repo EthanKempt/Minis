@@ -105,8 +105,6 @@
             var running = 0;
             var runb = document.getElementsByClassName('line' + currentL)[running].value;
             var runa = word[running];
-            var anyvar = 0;
-            var any = word[anyvar];
 
             check();
 
@@ -123,17 +121,8 @@
                         running++;
                         check();
                     }
-
                     else {
-
-                        if (anyvar != 4) {
-
-                            if (runb == any) {
-                                document.getElementById('l' + currentL + 'b' + runbutton).style.backgroundColor = 'green';
-                            }
-                        }
-
-
+                        otherletter();
                         var runbutton = running + 1;
                         document.getElementById('l' + currentL + 'b' + runbutton).style.backgroundColor = 'gray';
                         running++;
@@ -143,6 +132,10 @@
                 else {
                     finish();
                 }
+            }
+
+            function otherletter() {
+                alert('ran');
             }
 
             function finish() {
