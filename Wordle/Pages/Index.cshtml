@@ -122,11 +122,14 @@
                         check();
                     }
                     else {
-                        otherletter();
+
                         var runbutton = running + 1;
                         document.getElementById('l' + currentL + 'b' + runbutton).style.backgroundColor = 'gray';
                         running++;
-                        check();
+
+                        var runb = document.getElementsByClassName('line' + currentL + 'b' + runbutton)[running].value;
+                        otherletter();
+                        finish();
                     }
                 }
                 else {
@@ -135,7 +138,7 @@
             }
 
             function otherletter() {
-                alert('ran');
+                alert(runb);
             }
 
             function finish() {
