@@ -113,33 +113,65 @@
                 if (running != 5) {
                     var runb = document.getElementsByClassName('line' + currentL)[running].value;
                     var runa = word[running];
+                    var runbutton = running + 1;
 
                     if (runb == runa) {
-                        var runbutton = running + 1;
 
                         document.getElementById('l' + currentL + 'b' + runbutton).style.backgroundColor = 'green';
-                        running++;
-                        check();
+
                     }
+
                     else {
+                        var runevar = 0;
+                        other();
 
-                        var runbutton = running + 1;
-                        document.getElementById('l' + currentL + 'b' + runbutton).style.backgroundColor = 'gray';
-                        running++;
+                        function other() {
+                            if (runevar != 5) {
+                                var rune = word[runevar];   //the correct letter. goes to the next one every time
+                                var runb = document.getElementsByClassName('line' + currentL)[running].value;   //which lettter were checking
+                                var runfill = runevar + 1;
 
-                        var runb = document.getElementsByClassName('line' + currentL + 'b' + runbutton)[running].value;
-                        otherletter();
-                        finish();
+
+                                if (rune != runb) {
+                                    alert(running);
+                                    document.getElementById('l' + currentL + 'b' + running).style.backgroundColor = 'gray';
+                                    runevar++;
+                                    other();
+                                }
+
+                                else {
+                                    
+                                    document.getElementById('l' + currentL + 'b' + running).style.backgroundColor = 'yellow';
+                                    runevar++;
+                                    other();
+                                }
+
+                                runevar++;
+                                other();
+                            }
+                            else {
+                                otherFinish();
+                            }
+
+                            function otherFinish() {
+                                running++;
+                                check();
+                            }
+
+
+                        }
+
+
                     }
+                    running++;
+                    check();
                 }
                 else {
                     finish();
                 }
             }
 
-            function otherletter() {
-                alert(runb);
-            }
+
 
             function finish() {
                 currentL++;
