@@ -122,50 +122,26 @@
                     }
 
                     else {
-                        var runevar = 0;
-                        other();
+                        all();
+                        function all() {
+                            var let1 = word[0];
+                            var let2 = word[1];
+                            var let3 = word[2];
+                            var let4 = word[3];
+                            var let5 = word[4];
 
-                        function other() {
-                            if (runevar != 5) {
-                                var rune = word[runevar];   //the correct letter. goes to the next one every time
-                                var runb = document.getElementsByClassName('line' + currentL)[running].value;   //which lettter were checking
-                                var runfill = runevar + 1;
-
-
-                                if (rune != runb) {
-                                    alert(running);
-                                    document.getElementById('l' + currentL + 'b' + running).style.backgroundColor = 'gray';
-                                    runevar++;
-                                    other();
-                                }
-
-                                else {
-                                    
-                                    document.getElementById('l' + currentL + 'b' + running).style.backgroundColor = 'yellow';
-                                    runevar++;
-                                    other();
-                                }
-
-                                runevar++;
-                                other();
+                            if (runb == let1 || runb == let2 || runb == let3 || runb == let4 || runb == let5) {
+                                document.getElementById('l' + currentL + 'b' + runbutton).style.backgroundColor = 'yellow';
                             }
-                            else {
-                                otherFinish();
-                            }
-
-                            function otherFinish() {
-                                running++;
-                                check();
-                            }
-
 
                         }
-
-
+                        
                     }
+
                     running++;
                     check();
                 }
+
                 else {
                     finish();
                 }
