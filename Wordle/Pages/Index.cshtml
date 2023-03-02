@@ -122,20 +122,24 @@
                     }
 
                     else {
-                        all();
-                        function all() {
-                            var let1 = word[0];
-                            var let2 = word[1];
-                            var let3 = word[2];
-                            var let4 = word[3];
-                            var let5 = word[4];
 
-                            if (runb == let1 || runb == let2 || runb == let3 || runb == let4 || runb == let5) {
-                                document.getElementById('l' + currentL + 'b' + runbutton).style.backgroundColor = 'yellow';
-                            }
+                        var let1 = word[0];
+                        var let2 = word[1];
+                        var let3 = word[2];
+                        var let4 = word[3];
+                        var let5 = word[4];
+                        var letarray = 
+
+                        if (runb == let1 || runb == let2 || runb == let3 || runb == let4 || runb == let5) {
+
+                            document.getElementById('l' + currentL + 'b' + runbutton).style.backgroundColor = 'yellow';
 
                         }
-                        
+                        else {
+                            document.getElementById('l' + currentL + 'b' + runbutton).style.backgroundColor = 'gray';
+                        }
+
+
                     }
 
                     running++;
