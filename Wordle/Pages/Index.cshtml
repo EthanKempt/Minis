@@ -22,17 +22,35 @@
     </div>
 
     <br>
-    <br>
     <div class="text-center">
-        <p class='keyboard'>A</p>
-        <p class='keyboard'>B</p>
-        <p class='keyboard'>C</p>
-        <p class='keyboard'>D</p>
-        <p class='keyboard'>E</p>
-        <p class='keyboard'>F</p>
-        <p class='keyboard'>G</p>
-        <p class='keyboard'>H</p>
-        <p class='keyboard'>I</p>
+        <p class='keyboard' id='Q'>Q</p>
+        <p class='keyboard' id='W'>W</p>
+        <p class='keyboard' id='E'>E</p>
+        <p class='keyboard' id='R'>R</p>
+        <p class='keyboard' id='T'>T</p>
+        <p class='keyboard' id='Y'>Y</p>
+        <p class='keyboard' id='U'>U</p>
+        <p class='keyboard' id='I'>I</p>
+        <p class='keyboard' id='O'>O</p>
+        <p class='keyboard' id='P'>P</p>
+        <br>
+        <p class='keyboard' id='A'>A</p>
+        <p class='keyboard' id='S'>S</p>
+        <p class='keyboard' id='D'>D</p>
+        <p class='keyboard' id='F'>F</p>
+        <p class='keyboard' id='G'>G</p>
+        <p class='keyboard' id='H'>H</p>
+        <p class='keyboard' id='J'>J</p>
+        <p class='keyboard' id='K'>K</p>
+        <p class='keyboard' id='L'>L</p>
+        <br>
+        <p class='keyboard' id='Z'>Z</p>
+        <p class='keyboard' id='X'>X</p>
+        <p class='keyboard' id='C'>C</p>
+        <p class='keyboard' id='V'>V</p>
+        <p class='keyboard' id='B'>B</p>
+        <p class='keyboard' id='N'>N</p>
+        <p class='keyboard' id='M'>M</p>
         </div>
 
 
@@ -50,10 +68,12 @@
     font-size: 30px;
     font-family: Courier;
     font-weight: 900;
-     padding-right: 5px;
-     padding-left: 5px;
-     padding-top: 1px;
-     padding-bottom: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin-bottom: 5px;
+    background-color: #f5f5f6;
 }
 
     h1 {
@@ -93,7 +113,7 @@
         var key = event.key;
         var size = key.length;
 
-        if (size == 1 && key.match(/[a-z]/)) {
+        if (size == 1 && key.match(/[A-z]/)) {
             var upper = key.toUpperCase();
             if (currentB != 6) {
                 var box = document.getElementById(move1()).value = upper;
@@ -148,7 +168,8 @@
 
                     if (runb == runa) {
 
-                        document.getElementById('l' + currentL + 'b' + runbutton).style.backgroundColor = '#6aaa64';
+                      document.getElementById('l' + currentL + 'b' + runbutton).style.backgroundColor = '#6aaa64';
+                      document.getElementById(runb).style.backgroundColor = '#6aaa64';
 
                     }
 
@@ -160,16 +181,23 @@
                         var let4 = word[3];
                         var let5 = word[4];
                         var letarray = [let1, let2, let3, let4, let5];
+                        var guesslet = document.getElementById(runb);
 
                         if (runb == let1 || runb == let2 || runb == let3 || runb == let4 || runb == let5) {
 
                             document.getElementById('l' + currentL + 'b' + runbutton).style.backgroundColor = '#c9b459';
+                            alert(guesslet.style.backgroundColor);
+
+                            if (guesslet.style.backgroundColor == 0){
+                            document.getElementById(runb).style.backgroundColor = '#c9b459';
+                            }
 
                         }
                         else {
                             document.getElementById('l' + currentL + 'b' + runbutton).style.backgroundColor = '#787c7f';
-                        }
+                            document.getElementById(runb).style.backgroundColor = '#787c7f';
 
+                        }
 
                     }
 
