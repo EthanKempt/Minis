@@ -23,34 +23,34 @@
 
     <br>
     <div class="text-center">
-        <p class='keyboard' id='Q'>Q</p>
-        <p class='keyboard' id='W'>W</p>
-        <p class='keyboard' id='E'>E</p>
-        <p class='keyboard' id='R'>R</p>
-        <p class='keyboard' id='T'>T</p>
-        <p class='keyboard' id='Y'>Y</p>
-        <p class='keyboard' id='U'>U</p>
-        <p class='keyboard' id='I'>I</p>
-        <p class='keyboard' id='O'>O</p>
-        <p class='keyboard' id='P'>P</p>
+        <button type='button' class='keyboard' id='Q'>Q</button>
+        <button type='button' class='keyboard' id='W'>W</button>
+        <button type='button' class='keyboard' id='E'>E</button>
+        <button type='button' class='keyboard' id='R'>R</button>
+        <button type='button' class='keyboard' id='T'>T</button>
+        <button type='button' class='keyboard' id='Y'>Y</button>
+        <button type='button' class='keyboard' id='U'>U</button>
+        <button type='button' class='keyboard' id='I'>I</button>
+        <button type='button' class='keyboard' id='O'>O</button>
+        <button type='button' class='keyboard' id='P'>P</button>
         <br>
-        <p class='keyboard' id='A'>A</p>
-        <p class='keyboard' id='S'>S</p>
-        <p class='keyboard' id='D'>D</p>
-        <p class='keyboard' id='F'>F</p>
-        <p class='keyboard' id='G'>G</p>
-        <p class='keyboard' id='H'>H</p>
-        <p class='keyboard' id='J'>J</p>
-        <p class='keyboard' id='K'>K</p>
-        <p class='keyboard' id='L'>L</p>
+        <button type='button' class='keyboard' id='A'>A</button>
+        <button type='button' class='keyboard' id='S'>S</button>
+        <button type='button' class='keyboard' id='D'>D</button>
+        <button type='button' class='keyboard' id='F'>F</button>
+        <button type='button' class='keyboard' id='G'>G</button>
+        <button type='button' class='keyboard' id='H'>H</button>
+        <button type='button' class='keyboard' id='J'>J</button>
+        <button type='button' class='keyboard' id='K'>K</button>
+        <button type='button' class='keyboard' id='L'>L</button>
         <br>
-        <p class='keyboard' id='Z'>Z</p>
-        <p class='keyboard' id='X'>X</p>
-        <p class='keyboard' id='C'>C</p>
-        <p class='keyboard' id='V'>V</p>
-        <p class='keyboard' id='B'>B</p>
-        <p class='keyboard' id='N'>N</p>
-        <p class='keyboard' id='M'>M</p>
+        <button type='button' class='keyboard' id='Z'>Z</button>
+        <button type='button' class='keyboard' id='X'>X</button>
+        <button type='button' class='keyboard' id='C'>C</button>
+        <button type='button' class='keyboard' id='V'>V</button>
+        <button type='button' class='keyboard' id='B'>B</button>
+        <button type='button' class='keyboard' id='N'>N</button>
+        <button type='button' class='keyboard' id='M'>M</button>
         </div>
 
 
@@ -63,7 +63,7 @@
     .keyboard {
     display: inline-block;
     border-style: solid;
-    border-width: 1px;
+    border-width: 0px;
     border-radius: 5px;
     font-size: 30px;
     font-family: Courier;
@@ -73,7 +73,7 @@
     padding-top: 1px;
     padding-bottom: 1px;
     margin-bottom: 5px;
-    background-color: #f5f5f6;
+    background-color: #d1d1cf;
 }
 
     h1 {
@@ -128,6 +128,11 @@
             enter();
         }
     }, false);
+
+    //onscreen keyboard
+    function click() {
+        alert('hi');
+    }
 
     //move on type
     function move1() {
