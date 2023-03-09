@@ -4,7 +4,6 @@
     ViewData["Title"] = "Home page";
 }
 
-
 <div class="text-center">
     <h1 class="display-4">Wordle</h1>
 
@@ -19,42 +18,42 @@
     <input type="text" maxlength="1" class="Format line5" id="l5b1"> <input type="text" maxlength="1" class="Format line5" id="l5b2"> <input type="text" maxlength="1" class="Format line5" id="l5b3"> <input type="text" maxlength="1" class="Format line5" id="l5b4"> <input type="text" maxlength="1" class="Format line5" id="l5b5">
     <p> </p>
     <input type="text" maxlength="1" class="Format line6" id="l6b1"> <input type="text" maxlength="1" class="Format line6" id="l6b2"> <input type="text" maxlength="1" class="Format line6" id="l6b3"> <input type="text" maxlength="1" class="Format line6" id="l6b4"> <input type="text" maxlength="1" class="Format line6" id="l6b5">
-    </div>
+</div>
 
+<br>
+<div class="text-center">
+    <button onclick="clck('Q')" type='button' class='keyboard' id='Q'>Q</button>
+    <button onclick="clck('W')" type='button' class='keyboard' id='W'>W</button>
+    <button onclick="clck('E')" type='button' class='keyboard' id='E'>E</button>
+    <button onclick="clck('R')" type='button' class='keyboard' id='R'>R</button>
+    <button onclick="clck('T')" type='button' class='keyboard' id='T'>T</button>
+    <button onclick="clck('Y')" type='button' class='keyboard' id='Y'>Y</button>
+    <button onclick="clck('U')" type='button' class='keyboard' id='U'>U</button>
+    <button onclick="clck('I')" type='button' class='keyboard' id='I'>I</button>
+    <button onclick="clck('O')" type='button' class='keyboard' id='O'>O</button>
+    <button onclick="clck('P')" type='button' class='keyboard' id='P'>P</button>
     <br>
-    <div class="text-center">
-        <button type='button' class='keyboard' id='Q'>Q</button>
-        <button type='button' class='keyboard' id='W'>W</button>
-        <button type='button' class='keyboard' id='E'>E</button>
-        <button type='button' class='keyboard' id='R'>R</button>
-        <button type='button' class='keyboard' id='T'>T</button>
-        <button type='button' class='keyboard' id='Y'>Y</button>
-        <button type='button' class='keyboard' id='U'>U</button>
-        <button type='button' class='keyboard' id='I'>I</button>
-        <button type='button' class='keyboard' id='O'>O</button>
-        <button type='button' class='keyboard' id='P'>P</button>
-        <br>
-        <button type='button' class='keyboard' id='A'>A</button>
-        <button type='button' class='keyboard' id='S'>S</button>
-        <button type='button' class='keyboard' id='D'>D</button>
-        <button type='button' class='keyboard' id='F'>F</button>
-        <button type='button' class='keyboard' id='G'>G</button>
-        <button type='button' class='keyboard' id='H'>H</button>
-        <button type='button' class='keyboard' id='J'>J</button>
-        <button type='button' class='keyboard' id='K'>K</button>
-        <button type='button' class='keyboard' id='L'>L</button>
-        <br>
-        <button type='button' class='keyboard' id='Z'>Z</button>
-        <button type='button' class='keyboard' id='X'>X</button>
-        <button type='button' class='keyboard' id='C'>C</button>
-        <button type='button' class='keyboard' id='V'>V</button>
-        <button type='button' class='keyboard' id='B'>B</button>
-        <button type='button' class='keyboard' id='N'>N</button>
-        <button type='button' class='keyboard' id='M'>M</button>
-        </div>
+    <button onclick="clck('A')" type='button' class='keyboard' id='A'>A</button>
+    <button onclick="clck('S')" type='button' class='keyboard' id='S'>S</button>
+    <button onclick="clck('D')" type='button' class='keyboard' id='D'>D</button>
+    <button onclick="clck('F')" type='button' class='keyboard' id='F'>F</button>
+    <button onclick="clck('G')" type='button' class='keyboard' id='G'>G</button>
+    <button onclick="clck('H')" type='button' class='keyboard' id='H'>H</button>
+    <button onclick="clck('J')" type='button' class='keyboard' id='J'>J</button>
+    <button onclick="clck('K')" type='button' class='keyboard' id='K'>K</button>
+    <button onclick="clck('L')" type='button' class='keyboard' id='L'>L</button>
+    <br>
+    <button onclick="clck('Z')" type='button' class='keyboard' id='Z'>Z</button>
+    <button onclick="clck('X')" type='button' class='keyboard' id='X'>X</button>
+    <button onclick="clck('C')" type='button' class='keyboard' id='C'>C</button>
+    <button onclick="clck('V')" type='button' class='keyboard' id='V'>V</button>
+    <button onclick="clck('B')" type='button' class='keyboard' id='B'>B</button>
+    <button onclick="clck('N')" type='button' class='keyboard' id='N'>N</button>
+    <button onclick="clck('M')" type='button' class='keyboard' id='M'>M</button>
+</div>
 
 <div class="input-group mb-3">
-    <input type="text" class="form-control" placeholder="Custom word" aria-label="Recipient's username" aria-describedby="basic-addon2">
+    <input type="text" class="form-control" placeholder="Custom word">
     <div class="input-group-append">
         <button class="btn btn-outline-secondary" type="button">Submit</button>
     </div>
@@ -62,20 +61,20 @@
 
 <style>
     .keyboard {
-    display: inline-block;
-    border-style: solid;
-    border-width: 0px;
-    border-radius: 5px;
-    font-size: 30px;
-    font-family: Courier;
-    font-weight: 900;
-    padding-right: 10px;
-    padding-left: 10px;
-    padding-top: 1px;
-    padding-bottom: 1px;
-    margin-bottom: 5px;
-    background-color: #d1d1cf;
-}
+        display: inline-block;
+        border-style: solid;
+        border-width: 0px;
+        border-radius: 5px;
+        font-size: 30px;
+        font-family: Courier;
+        font-weight: 900;
+        padding-right: 10px;
+        padding-left: 10px;
+        padding-top: 1px;
+        padding-bottom: 1px;
+        margin-bottom: 5px;
+        background-color: #d1d1cf;
+    }
 
     h1 {
         font-family: Stencil Std;
@@ -116,9 +115,7 @@
 
         if (size == 1 && key.match(/[A-z]/)) {
             var upper = key.toUpperCase();
-            if (currentB != 6) {
-                var box = document.getElementById(move1()).value = upper;
-            }
+            type(upper);
         }
 
         if (key === 'Backspace') {
@@ -131,8 +128,15 @@
     }, false);
 
     //onscreen keyboard
-    function click() {
-        alert('hi');
+    function clck(letter) {
+        type(letter);
+    }
+
+    //type
+    function type(letter) {
+        if (currentB != 6) {
+            var box = document.getElementById(move1()).value = letter;
+        }
     }
 
     //move on type
@@ -175,13 +179,13 @@
 
                     if (runb == runa) {
 
-                      document.getElementById('l' + currentL + 'b' + runbutton).style.backgroundColor = '#6aaa64';
-                      document.getElementById(runb).style.backgroundColor = '#6aaa64';
-                      correct++;
-                      if (correct == 5) {
-                          currentL = 10; 
-                          alert('Good Job');
-                      }
+                        document.getElementById('l' + currentL + 'b' + runbutton).style.backgroundColor = '#6aaa64';
+                        document.getElementById(runb).style.backgroundColor = '#6aaa64';
+                        correct++;
+                        if (correct == 5) {
+                            currentL = 10;
+                            alert('Good Job');
+                        }
                     }
 
                     else {
@@ -198,8 +202,8 @@
 
                             document.getElementById('l' + currentL + 'b' + runbutton).style.backgroundColor = '#c9b459';
 
-                            if (guesslet.style.backgroundColor == 0){
-                            document.getElementById(runb).style.backgroundColor = '#c9b459';
+                            if (guesslet.style.backgroundColor == 0) {
+                                document.getElementById(runb).style.backgroundColor = '#c9b459';
                             }
 
                         }
