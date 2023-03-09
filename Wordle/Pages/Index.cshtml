@@ -53,11 +53,12 @@
         <button type='button' class='keyboard' id='M'>M</button>
         </div>
 
-
-
-    <div style = "position:fixed; right:80px; bottom:0px;">
-        <input type='text' maxlength='5'>
+<div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Custom word" aria-label="Recipient's username" aria-describedby="basic-addon2">
+    <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button">Submit</button>
     </div>
+</div>
 
 <style>
     .keyboard {
@@ -161,6 +162,7 @@
             var running = 0;
             var runb = document.getElementsByClassName('line' + currentL)[running].value;
             var runa = word[running];
+            var correct = 0;
 
             check();
 
@@ -175,7 +177,11 @@
 
                       document.getElementById('l' + currentL + 'b' + runbutton).style.backgroundColor = '#6aaa64';
                       document.getElementById(runb).style.backgroundColor = '#6aaa64';
-
+                      correct++;
+                      if (correct == 5) {
+                          currentL = 10; 
+                          alert('Good Job');
+                      }
                     }
 
                     else {
