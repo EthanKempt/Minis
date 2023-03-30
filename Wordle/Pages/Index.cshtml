@@ -53,9 +53,9 @@
 </div>
 
 <div class="input-group mb-3">
-    <input type="text" class="form-control" placeholder="Custom word" maxlength="5" id="inp" onclick="var infocus = true">
+    <input type="text" class="form-control" placeholder="Custom word" maxlength="5" id="inp" onclick="doit()">
     <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="button">Submit</button>
+        <button class="btn btn-outline-secondary" type="button" onclick="submitted()">Submit</button>
     </div>
 </div>
 
@@ -106,7 +106,8 @@
     //variables
     var currentB = 1;
     var currentL = 1;
-    var word = 'RADIO';
+    window.word = 'RADIO';
+    window.init = false;
 
     //fill a box
     document.addEventListener('keyup', (event) => {
@@ -133,105 +134,113 @@
     }
 
     //type
+    function doit() {
+        window.init = true;
+    }
+
+    function submitted() {
+        var prop = document.getElementById('inp').value.toUpperCase();
+        if (prop.length == 5) {
+            window.word = prop;
+        }
+        window.init = false;
+    }
+
     function type(letter) {
-        if (currentB != 6) {
+        if (currentB != 6 && init == false) {
             var box = document.getElementById(move1()).value = letter;
         }
     }
 
-    function focus() {
-        alert('hi');
+    //move on type
+    function move1() {
+        var input = 'l' + currentL + 'b' + currentB;
+        currentB++;
+        return input;
     }
 
-        //move on type
-        function move1() {
+    //backspace
+    function backspace() {
+        if (currentB >= 2) {
+            currentB -= 1;
             var input = 'l' + currentL + 'b' + currentB;
-            currentB++;
+            var del = document.getElementById(input).value = null;
             return input;
         }
-
-        //backspace
-        function backspace() {
-            if (currentB >= 2) {
-                currentB -= 1;
-                var input = 'l' + currentL + 'b' + currentB;
-                var del = document.getElementById(input).value = null;
-                return input;
-            }
-            else {
-                return;
-            }
+        else {
+            return;
         }
+    }
 
-        //enter
-        function enter() {
-            if (currentB == 6 && currentL != 7) {
+    //enter
+    function enter() {
+        if (currentB == 6 && currentL != 7) {
 
-                var running = 0;
-                var runb = document.getElementsByClassName('line' + currentL)[running].value;
-                var runa = word[running];
-                var correct = 0;
+            var running = 0;
+            var runb = document.getElementsByClassName('line' + currentL)[running].value;
+            var runa = word[running];
+            var correct = 0;
 
-                check();
+            check();
 
-                function check() {
+            function check() {
 
-                    if (running != 5) {
-                        var runb = document.getElementsByClassName('line' + currentL)[running].value;
-                        var runa = word[running];
-                        var runbutton = running + 1;
+                if (running != 5) {
+                    var runb = document.getElementsByClassName('line' + currentL)[running].value;
+                    var runa = word[running];
+                    var runbutton = running + 1;
 
-                        if (runb == runa) {
+                    if (runb == runa) {
 
-                            document.getElementById('l' + currentL + 'b' + runbutton).style.backgroundColor = '#6aaa64';
-                            document.getElementById(runb).style.backgroundColor = '#6aaa64';
-                            correct++;
-                            if (correct == 5) {
-                                currentL = 10;
-                                alert('Good Job');
-                            }
+                        document.getElementById('l' + currentL + 'b' + runbutton).style.backgroundColor = '#6aaa64';
+                        document.getElementById(runb).style.backgroundColor = '#6aaa64';
+                        correct++;
+                        if (correct == 5) {
+                            currentL = 10;
+                            alert('Good Job');
                         }
-
-                        else {
-
-                            var let1 = word[0];
-                            var let2 = word[1];
-                            var let3 = word[2];
-                            var let4 = word[3];
-                            var let5 = word[4];
-                            var letarray = [let1, let2, let3, let4, let5];
-                            var guesslet = document.getElementById(runb);
-
-                            if (runb == let1 || runb == let2 || runb == let3 || runb == let4 || runb == let5) {
-
-                                document.getElementById('l' + currentL + 'b' + runbutton).style.backgroundColor = '#c9b459';
-
-                                if (guesslet.style.backgroundColor == 0) {
-                                    document.getElementById(runb).style.backgroundColor = '#c9b459';
-                                }
-
-                            }
-                            else {
-                                document.getElementById('l' + currentL + 'b' + runbutton).style.backgroundColor = '#787c7f';
-                                document.getElementById(runb).style.backgroundColor = '#787c7f';
-
-                            }
-
-                        }
-
-                        running++;
-                        check();
                     }
 
                     else {
-                        finish();
+
+                        var let1 = word[0];
+                        var let2 = word[1];
+                        var let3 = word[2];
+                        var let4 = word[3];
+                        var let5 = word[4];
+                        var letarray = [let1, let2, let3, let4, let5];
+                        var guesslet = document.getElementById(runb);
+
+                        if (runb == let1 || runb == let2 || runb == let3 || runb == let4 || runb == let5) {
+
+                            document.getElementById('l' + currentL + 'b' + runbutton).style.backgroundColor = '#c9b459';
+
+                            if (guesslet.style.backgroundColor == 0) {
+                                document.getElementById(runb).style.backgroundColor = '#c9b459';
+                            }
+
+                        }
+                        else {
+                            document.getElementById('l' + currentL + 'b' + runbutton).style.backgroundColor = '#787c7f';
+                            document.getElementById(runb).style.backgroundColor = '#787c7f';
+
+                        }
+
                     }
+
+                    running++;
+                    check();
                 }
 
-                function finish() {
-                    currentL++;
-                    currentB = 1;
+                else {
+                    finish();
                 }
             }
+
+            function finish() {
+                currentL++;
+                currentB = 1;
+            }
         }
+    }
 </script>
