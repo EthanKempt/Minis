@@ -53,7 +53,7 @@
 </div>
 
 <div class="input-group mb-3">
-    <input type="text" class="form-control" placeholder="Custom word" maxlength="5" id="inp" @*onclick="doit()"*@>
+    <input type="text" class="form-control" placeholder="Custom word" maxlength="5" id="inp" onfocus="doit">
     <div class="input-group-append">
         <button class="btn btn-outline-secondary" type="button" onclick="submitted()">Submit</button>
     </div>
@@ -137,8 +137,6 @@
     function doit() {
         window.init = true;
     }
-
-    alert($("*:focus").attr("inp"));
 
     function submitted() {
         var prop = document.getElementById('inp').value.toUpperCase();
