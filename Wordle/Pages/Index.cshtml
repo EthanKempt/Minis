@@ -30,7 +30,7 @@
       <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Custom word" maxlength="5" id="inp" onfocus="doit()" onfocusout='notit()'>
         <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="button" onclick="submitted()">Submit</button>
+          <button class="btn btn-outline-secondary" type="button" onclick="submitted()" disabled>Submit</button>
         </div>
       </div>
     </div>
@@ -139,7 +139,12 @@
           }
 
           if (key === 'Enter') {
+            if (init == true) {
+              submitted();
+            }
+            else {
               enter();
+            }
           }
       }, false);
 
@@ -161,8 +166,9 @@
         var prop = document.getElementById('inp').value.toUpperCase();
         if (prop.length == 5) {
             window.word = prop;
-        }
+            document.getElementById('inp').value = null;
         window.init = false;
+        }
     }
 
     function type(letter) {
@@ -216,7 +222,7 @@
                         correct++;
                         if (correct == 5) {
                             currentL = 10;
-                            alert('Good Job');
+                            //alert('Good Job');
                         }
                     }
 
