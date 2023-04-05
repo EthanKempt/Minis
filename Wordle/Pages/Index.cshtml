@@ -4,21 +4,39 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Wordle</h1>
+<div class="container text-center">
+  <div class="row align-items-center">
+    <div class="col">
+    </div>
+    <div class="col">
+      <div class="text-center">
+        <h1 class="display-4">Wordle</h1>
 
-    <input type="text" maxlength="1" class="Format line1" id="l1b1"> <input type="text" maxlength="1" class="Format line1" id="l1b2"> <input type="text" maxlength="1" class="Format line1" id="l1b3"> <input type="text" maxlength="1" class="Format line1" id="l1b4"> <input type="text" maxlength="1" class="Format line1" id="l1b5">
-    <p> </p>
-    <input type="text" maxlength="1" class="Format line2" id="l2b1"> <input type="text" maxlength="1" class="Format line2" id="l2b2"> <input type="text" maxlength="1" class="Format line2" id="l2b3"> <input type="text" maxlength="1" class="Format line2" id="l2b4"> <input type="text" maxlength="1" class="Format line2" id="l2b5">
-    <p> </p>
-    <input type="text" maxlength="1" class="Format line3" id="l3b1"> <input type="text" maxlength="1" class="Format line3" id="l3b2"> <input type="text" maxlength="1" class="Format line3" id="l3b3"> <input type="text" maxlength="1" class="Format line3" id="l3b4"> <input type="text" maxlength="1" class="Format line3" id="l3b5">
-    <p> </p>
-    <input type="text" maxlength="1" class="Format line4" id="l4b1"> <input type="text" maxlength="1" class="Format line4" id="l4b2"> <input type="text" maxlength="1" class="Format line4" id="l4b3"> <input type="text" maxlength="1" class="Format line4" id="l4b4"> <input type="text" maxlength="1" class="Format line4" id="l4b5">
-    <p> </p>
-    <input type="text" maxlength="1" class="Format line5" id="l5b1"> <input type="text" maxlength="1" class="Format line5" id="l5b2"> <input type="text" maxlength="1" class="Format line5" id="l5b3"> <input type="text" maxlength="1" class="Format line5" id="l5b4"> <input type="text" maxlength="1" class="Format line5" id="l5b5">
-    <p> </p>
-    <input type="text" maxlength="1" class="Format line6" id="l6b1"> <input type="text" maxlength="1" class="Format line6" id="l6b2"> <input type="text" maxlength="1" class="Format line6" id="l6b3"> <input type="text" maxlength="1" class="Format line6" id="l6b4"> <input type="text" maxlength="1" class="Format line6" id="l6b5">
+        <input type="text" maxlength="1" class="Format line1" id="l1b1"> <input type="text" maxlength="1" class="Format line1" id="l1b2"> <input type="text" maxlength="1" class="Format line1" id="l1b3"> <input type="text" maxlength="1" class="Format line1" id="l1b4"> <input type="text" maxlength="1" class="Format line1" id="l1b5">
+        <p> </p>
+        <input type="text" maxlength="1" class="Format line2" id="l2b1"> <input type="text" maxlength="1" class="Format line2" id="l2b2"> <input type="text" maxlength="1" class="Format line2" id="l2b3"> <input type="text" maxlength="1" class="Format line2" id="l2b4"> <input type="text" maxlength="1" class="Format line2" id="l2b5">
+        <p> </p>
+        <input type="text" maxlength="1" class="Format line3" id="l3b1"> <input type="text" maxlength="1" class="Format line3" id="l3b2"> <input type="text" maxlength="1" class="Format line3" id="l3b3"> <input type="text" maxlength="1" class="Format line3" id="l3b4"> <input type="text" maxlength="1" class="Format line3" id="l3b5">
+        <p> </p>
+        <input type="text" maxlength="1" class="Format line4" id="l4b1"> <input type="text" maxlength="1" class="Format line4" id="l4b2"> <input type="text" maxlength="1" class="Format line4" id="l4b3"> <input type="text" maxlength="1" class="Format line4" id="l4b4"> <input type="text" maxlength="1" class="Format line4" id="l4b5">
+        <p> </p>
+        <input type="text" maxlength="1" class="Format line5" id="l5b1"> <input type="text" maxlength="1" class="Format line5" id="l5b2"> <input type="text" maxlength="1" class="Format line5" id="l5b3"> <input type="text" maxlength="1" class="Format line5" id="l5b4"> <input type="text" maxlength="1" class="Format line5" id="l5b5">
+        <p> </p>
+        <input type="text" maxlength="1" class="Format line6" id="l6b1"> <input type="text" maxlength="1" class="Format line6" id="l6b2"> <input type="text" maxlength="1" class="Format line6" id="l6b3"> <input type="text" maxlength="1" class="Format line6" id="l6b4"> <input type="text" maxlength="1" class="Format line6" id="l6b5">
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Custom word" maxlength="5" id="inp" onfocus="doit()" onfocusout='notit()'>
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button" onclick="submitted()">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
 
 <br>
 <div class="text-center">
@@ -50,13 +68,6 @@
     <button onclick="clck('B')" type='button' class='keyboard' id='B'>B</button>
     <button onclick="clck('N')" type='button' class='keyboard' id='N'>N</button>
     <button onclick="clck('M')" type='button' class='keyboard' id='M'>M</button>
-</div>
-
-<div class="input-group mb-3">
-    <input type="text" class="form-control" placeholder="Custom word" maxlength="5" id="inp" onfocus="doit">
-    <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="button" onclick="submitted()">Submit</button>
-    </div>
 </div>
 
 <style>
@@ -100,6 +111,10 @@
     input:focus, textarea:focus, select:focus {
         outline: none;
     }
+
+    body {
+      overflow: hidden;
+    }
 </style>
 
 <script>
@@ -110,23 +125,23 @@
     window.init = false;
 
     //fill a box
-    document.addEventListener('keyup', (event) => {
-        var key = event.key;
-        var size = key.length;
+      document.addEventListener('keyup', (event) => {
+          var key = event.key;
+          var size = key.length;
 
-        if (size == 1 && key.match(/[A-z]/)) {
-            var upper = key.toUpperCase();
-            type(upper);
-        }
+          if (size == 1 && key.match(/[A-z]/)) {
+              var upper = key.toUpperCase();
+              type(upper);
+          }
 
-        if (key === 'Backspace') {
-            backspace();
-        }
+          if (key === 'Backspace') {
+              backspace();
+          }
 
-        if (key === 'Enter') {
-            enter();
-        }
-    }, false);
+          if (key === 'Enter') {
+              enter();
+          }
+      }, false);
 
     //onscreen keyboard
     function clck(letter) {
@@ -136,6 +151,10 @@
     //type
     function doit() {
         window.init = true;
+    }
+
+    function notit() {
+      window.init = false;
     }
 
     function submitted() {
