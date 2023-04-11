@@ -5,38 +5,39 @@
 }
 
 <div class="container text-center">
-  <div class="row align-items-center">
-    <div class="col">
-    </div>
-    <div class="col">
-      <div class="text-center">
-        <h1 class="display-4">Wordle</h1>
-
-        <input type="text" maxlength="1" class="Format line1" id="l1b1"> <input type="text" maxlength="1" class="Format line1" id="l1b2"> <input type="text" maxlength="1" class="Format line1" id="l1b3"> <input type="text" maxlength="1" class="Format line1" id="l1b4"> <input type="text" maxlength="1" class="Format line1" id="l1b5">
-        <p> </p>
-        <input type="text" maxlength="1" class="Format line2" id="l2b1"> <input type="text" maxlength="1" class="Format line2" id="l2b2"> <input type="text" maxlength="1" class="Format line2" id="l2b3"> <input type="text" maxlength="1" class="Format line2" id="l2b4"> <input type="text" maxlength="1" class="Format line2" id="l2b5">
-        <p> </p>
-        <input type="text" maxlength="1" class="Format line3" id="l3b1"> <input type="text" maxlength="1" class="Format line3" id="l3b2"> <input type="text" maxlength="1" class="Format line3" id="l3b3"> <input type="text" maxlength="1" class="Format line3" id="l3b4"> <input type="text" maxlength="1" class="Format line3" id="l3b5">
-        <p> </p>
-        <input type="text" maxlength="1" class="Format line4" id="l4b1"> <input type="text" maxlength="1" class="Format line4" id="l4b2"> <input type="text" maxlength="1" class="Format line4" id="l4b3"> <input type="text" maxlength="1" class="Format line4" id="l4b4"> <input type="text" maxlength="1" class="Format line4" id="l4b5">
-        <p> </p>
-        <input type="text" maxlength="1" class="Format line5" id="l5b1"> <input type="text" maxlength="1" class="Format line5" id="l5b2"> <input type="text" maxlength="1" class="Format line5" id="l5b3"> <input type="text" maxlength="1" class="Format line5" id="l5b4"> <input type="text" maxlength="1" class="Format line5" id="l5b5">
-        <p> </p>
-        <input type="text" maxlength="1" class="Format line6" id="l6b1"> <input type="text" maxlength="1" class="Format line6" id="l6b2"> <input type="text" maxlength="1" class="Format line6" id="l6b3"> <input type="text" maxlength="1" class="Format line6" id="l6b4"> <input type="text" maxlength="1" class="Format line6" id="l6b5">
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Custom word" maxlength="5" id="inp" onfocus="doit()" onfocusout='notit()'>
-        <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="button" onclick="submitted()" disabled>Submit</button>
+    <div class="row align-items-start">
+        <div class="col">
         </div>
-      </div>
-    </div>
-  </div>
-</div>
+        <div class="col">
+            <div class="text-center">
+                <h1 class="display-4">Wordle</h1>
 
+                <input type="text" maxlength="1" class="Format line1" id="l1b1"> <input type="text" maxlength="1" class="Format line1" id="l1b2"> <input type="text" maxlength="1" class="Format line1" id="l1b3"> <input type="text" maxlength="1" class="Format line1" id="l1b4"> <input type="text" maxlength="1" class="Format line1" id="l1b5">
+                <p> </p>
+                <input type="text" maxlength="1" class="Format line2" id="l2b1"> <input type="text" maxlength="1" class="Format line2" id="l2b2"> <input type="text" maxlength="1" class="Format line2" id="l2b3"> <input type="text" maxlength="1" class="Format line2" id="l2b4"> <input type="text" maxlength="1" class="Format line2" id="l2b5">
+                <p> </p>
+                <input type="text" maxlength="1" class="Format line3" id="l3b1"> <input type="text" maxlength="1" class="Format line3" id="l3b2"> <input type="text" maxlength="1" class="Format line3" id="l3b3"> <input type="text" maxlength="1" class="Format line3" id="l3b4"> <input type="text" maxlength="1" class="Format line3" id="l3b5">
+                <p> </p>
+                <input type="text" maxlength="1" class="Format line4" id="l4b1"> <input type="text" maxlength="1" class="Format line4" id="l4b2"> <input type="text" maxlength="1" class="Format line4" id="l4b3"> <input type="text" maxlength="1" class="Format line4" id="l4b4"> <input type="text" maxlength="1" class="Format line4" id="l4b5">
+                <p> </p>
+                <input type="text" maxlength="1" class="Format line5" id="l5b1"> <input type="text" maxlength="1" class="Format line5" id="l5b2"> <input type="text" maxlength="1" class="Format line5" id="l5b3"> <input type="text" maxlength="1" class="Format line5" id="l5b4"> <input type="text" maxlength="1" class="Format line5" id="l5b5">
+                <p> </p>
+                <input type="text" maxlength="1" class="Format line6" id="l6b1"> <input type="text" maxlength="1" class="Format line6" id="l6b2"> <input type="text" maxlength="1" class="Format line6" id="l6b3"> <input type="text" maxlength="1" class="Format line6" id="l6b4"> <input type="text" maxlength="1" class="Format line6" id="l6b5">
+            </div>
+        </div>
+        <div class="col align-self-center">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Custom word" maxlength="5" id="inp" hidden>
+                <div class="input-group-append">
+                    <button class="btn btn-outline-primary" type="button" onclick="submitted()" hidden>Submit</button>
+                </div>
+            </div>
+            <div class="row justify-content-end">
+                <button id="change" class='btn btn-outline-secondary' type='button' onclick="transforming()">Change Word</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <br>
 <div class="text-center">
@@ -112,8 +113,11 @@
         outline: none;
     }
 
-    body {
-      overflow: hidden;
+    #change {
+        position: fixed;
+        top: 20%;
+        right: -1%;
+        width: 10%;
     }
 </style>
 
@@ -125,28 +129,27 @@
     window.init = false;
 
     //fill a box
-      document.addEventListener('keyup', (event) => {
-          var key = event.key;
-          var size = key.length;
+    document.addEventListener('keyup', (event) => {
+        var key = event.key;
+        var size = key.length;
 
-          if (size == 1 && key.match(/[A-z]/)) {
-              var upper = key.toUpperCase();
-              type(upper);
-          }
+        if (size == 1 && key.match(/[A-z]/)) {
+            var upper = key.toUpperCase();
+            type(upper);
+        }
 
-          if (key === 'Backspace') {
-              backspace();
-          }
+        if (key === 'Backspace') {
+            backspace();
+        }
 
-          if (key === 'Enter') {
+        if (key === 'Enter')
             if (init == true) {
-              submitted();
+                enterin();
             }
             else {
-              enter();
+                enter();
             }
-          }
-      }, false);
+    }, false);
 
     //onscreen keyboard
     function clck(letter) {
@@ -158,17 +161,12 @@
         window.init = true;
     }
 
-    function notit() {
-      window.init = false;
-    }
-
     function submitted() {
         var prop = document.getElementById('inp').value.toUpperCase();
         if (prop.length == 5) {
             window.word = prop;
-            document.getElementById('inp').value = null;
-        window.init = false;
         }
+        window.init = false;
     }
 
     function type(letter) {
@@ -197,6 +195,22 @@
         }
     }
 
+    function enterin() {
+        submitted();
+    }
+
+    function transforming() {
+        var changebox = document.getElementById('change');
+            if (false) {
+                alert('done')
+            } else {
+                changebox.style.left = pos + 'px';
+                pos++;
+                transforming();
+                alert('not');
+            }
+        }
+
     //enter
     function enter() {
         if (currentB == 6 && currentL != 7) {
@@ -222,7 +236,7 @@
                         correct++;
                         if (correct == 5) {
                             currentL = 10;
-                            //alert('Good Job');
+                            alert('Good Job');
                         }
                     }
 
