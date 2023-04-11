@@ -27,13 +27,13 @@
         </div>
         <div class="col align-self-center">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Custom word" maxlength="5" id="inp" hidden>
+                <input type="text" class="form-control" placeholder="Custom word" maxlength="5" id="inp" hidden readonly autofocus autocomplete="off">
                 <div class="input-group-append">
-                    <button class="btn btn-outline-primary" type="button" onclick="submitted()" hidden>Submit</button>
+                    <button class="btn btn-outline-primary" type="button" onclick="submitted()" id='sub' hidden>Submit</button>
                 </div>
             </div>
             <div class="row justify-content-end">
-                <button id="change" class='btn btn-outline-secondary' type='button' onclick="transforming()">Change Word</button>
+                <button id="change" class='btn btn-outline-secondary' type='button' onclick="switchto()">Change Word</button>
             </div>
         </div>
     </div>
@@ -86,6 +86,7 @@
         padding-bottom: 1px;
         margin-bottom: 5px;
         background-color: #d1d1cf;
+        outline-width: 0px;
     }
 
     h1 {
@@ -134,12 +135,22 @@
         var size = key.length;
 
         if (size == 1 && key.match(/[A-z]/)) {
+          if (init == true) {
+            typetxt();
+          }
+          else {
             var upper = key.toUpperCase();
             type(upper);
+          }
         }
 
         if (key === 'Backspace') {
+          if (init == true){
+            backtxt();
+          }
+          else{
             backspace();
+          }
         }
 
         if (key === 'Enter')
@@ -165,8 +176,14 @@
         var prop = document.getElementById('inp').value.toUpperCase();
         if (prop.length == 5) {
             window.word = prop;
+            window.init = false;
+      var txtbox = document.getElementById('inp');
+      var subbut = document.getElementById('sub');
+      var changer = document.getElementById('change');
+      txtbox.hidden = true;
+      subbut.hidden = true;
+      changer.hidden = false;
         }
-        window.init = false;
     }
 
     function type(letter) {
@@ -199,17 +216,23 @@
         submitted();
     }
 
-    function transforming() {
-        var changebox = document.getElementById('change');
-            if (false) {
-                alert('done')
-            } else {
-                changebox.style.left = pos + 'px';
-                pos++;
-                transforming();
-                alert('not');
-            }
+    function switchto() {
+      var txtbox = document.getElementById('inp');
+      var subbut = document.getElementById('sub');
+      var changer = document.getElementById('change');
+      txtbox.hidden = false;
+      subbut.hidden = false;
+      changer.hidden = true;
+      window.init = true;
         }
+
+     function backtxt() {
+
+     }
+
+     function typetxt() {
+
+     }
 
     //enter
     function enter() {
@@ -236,7 +259,6 @@
                         correct++;
                         if (correct == 5) {
                             currentL = 10;
-                            alert('Good Job');
                         }
                     }
 
