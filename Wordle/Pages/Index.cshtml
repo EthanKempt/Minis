@@ -1,7 +1,7 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+  ViewData["Title"] = "Home page";
 }
 
 <div class="container text-center">
@@ -185,20 +185,35 @@
             subbut.hidden = true;
             changer.hidden = false;
             txtbox.value = '';
+            const boxes = Array.from(
+              document.getElementsByClassName('keyboard')
+            );
+            boxes.forEach(box => {
+             box.style.backgroundColor = '#d1d1cf';
+             box.style.backgroundColor = 0;
+            });
             var clearL = 1;
             var clearB = 1;
 
             clearall();
 
             function clearall() {
-                if (clearB == 4) {
-                    var clearB = 1;
-                }
-
                 if (clearB <= 5) {
                     document.getElementById('l' + clearL + 'b' + clearB).value = '';
+                    document.getElementById('l' + clearL + 'b' + clearB).style.backgroundColor = 'white';
                     clearB++;
+                    if (clearB != 6) {
                     clearall();
+                    }
+                    else {
+                      clearL++;
+                      clearB--;
+                      clearB--;
+                      clearB--;
+                      clearB--;
+                      clearB--;
+                      clearall();
+                    }
                 }
             }
         }
@@ -244,9 +259,13 @@
         window.init = true;
     }
 
+    function checkword() {
+      var text = fs.readFileSync("./Guessable.txt").toString('utf-8');
+    }
+
     //enter
     function enter() {
-        if (currentB == 6 && currentL != 7) {
+        if (currentB == 6 && currentL != 7 && checkword([0])) {
 
             var running = 0;
             var runb = document.getElementsByClassName('line' + currentL)[running].value;
