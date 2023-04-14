@@ -1,8 +1,16 @@
 ﻿function checkit(a) {
-  var i = wordlist[wordnumb];
+    alert('check1');
+    var i = wordlist[wordnumb];
     for (var i = 0; i < elements.length; i++) {
-        elements[i].style.backgroundColor = "#d1d1cf";
+        if (a == i) {
+            return true;
+        }
+        else {
+            alert('try a different word');
+            return false;
+        }
     }
+}
 
 const wordlist = [
   "aback",
