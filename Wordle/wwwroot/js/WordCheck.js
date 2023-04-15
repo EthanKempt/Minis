@@ -9,6 +9,17 @@
     }
 }
 
+function checktheword(b) {
+  var blow = b.toLowerCase();
+  var found = wordlist.includes(blow);
+  if (found == true) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
 const wordlist = [
   "aback",
   "abase",

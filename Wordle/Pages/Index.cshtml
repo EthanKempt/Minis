@@ -1,7 +1,7 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Worder";
+  ViewData["Title"] = "Worder";
 }
 
 <div class="container text-center">
@@ -181,6 +181,7 @@
     function submitted() {
         var prop = document.getElementById('inp').value.toUpperCase();
         if (prop.length == 5) {
+          if (checktheword(prop) == true) {
             window.word = prop;
             window.init = false;
             var txtbox = document.getElementById('inp');
@@ -202,6 +203,7 @@
             window.currentL = 1;
 
 
+
             clearall();
 
             function clearall() {
@@ -220,6 +222,7 @@
                         clearB--;
                         clearB--;
                         clearall();
+                    }
                     }
                 }
             }
