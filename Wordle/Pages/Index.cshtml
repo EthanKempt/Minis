@@ -1,7 +1,7 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Worder";
 }
 
 <div class="container text-center">
@@ -29,6 +29,9 @@
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Custom word" maxlength="5" id="inp" hidden autofocus autocomplete="off" onkeypress="return (event.charCode > 64 &&
                 event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)" onpaste="return false">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" onclick="cancel()" id='cancel' hidden>Cancel</button>
+                </div>
                 <div class="input-group-append">
                     <button class="btn btn-outline-primary" type="button" onclick="submitted()" id='sub' hidden>Submit</button>
                 </div>
@@ -182,9 +185,11 @@
             window.init = false;
             var txtbox = document.getElementById('inp');
             var subbut = document.getElementById('sub');
+            var cancelbut = document.getElementById('cancel');
             var changer = document.getElementById('change');
             txtbox.hidden = true;
             subbut.hidden = true;
+            cancelbut.hidden = true;
             changer.hidden = false;
             txtbox.value = '';
             var elements = document.getElementsByClassName('keyboard');
@@ -221,6 +226,19 @@
         }
     }
 
+    function cancel() {
+        window.init = false;
+        var txtbox = document.getElementById('inp');
+        var subbut = document.getElementById('sub');
+        var cancelbut = document.getElementById('cancel');
+        var changer = document.getElementById('change');
+
+        txtbox.hidden = true;
+        subbut.hidden = true;
+        cancelbut.hidden = true;
+        changer.hidden = false;
+    }
+
     function type(letter) {
         if (currentB != 6 && init == false) {
             var box = document.getElementById(move1()).value = letter;
@@ -254,17 +272,28 @@
     function switchto() {
         var txtbox = document.getElementById('inp');
         var subbut = document.getElementById('sub');
+        var cancelbut = document.getElementById('cancel');
         var changer = document.getElementById('change');
         txtbox.hidden = false;
         subbut.hidden = false;
+        cancelbut.hidden = false;
         changer.hidden = true;
         window.init = true;
     }
 
     function checkword() {
-        checkit();
-         if (checkit(word) == true) {
-        return true;
+        var check1 = document.getElementById('l' + currentL + 'b1').value;
+        var check2 = document.getElementById('l' + currentL + 'b2').value;
+        var check3 = document.getElementById('l' + currentL + 'b3').value;
+        var check4 = document.getElementById('l' + currentL + 'b4').value;
+        var check5 = document.getElementById('l' + currentL + 'b5').value;
+        var checkword = check1 + check2 + check3 + check4 + check5;
+
+         if (checkit(checkword) == true) {
+             return true;
+         }
+         else {
+             return false;
          }
     }
 

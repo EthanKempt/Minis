@@ -1,14 +1,11 @@
 ﻿function checkit(a) {
-    alert('check1');
-    var i = wordlist[wordnumb];
-    for (var i = 0; i < elements.length; i++) {
-        if (a == i) {
-            return true;
-        }
-        else {
-            alert('try a different word');
-            return false;
-        }
+    var alow = a.toLowerCase();
+    var found = wordlist.includes(alow);
+    if (found == true) {
+        return true;
+    }
+    else {
+        return false;
     }
 }
 
