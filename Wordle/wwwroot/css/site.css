@@ -17,3 +17,11 @@ body {
   margin-bottom: 60px;
   overflow: hidden; /* Hide scrollbars */
 }
+
+#nav-right {
+    float: right;
+}
+
+png {
+    background-color: transparent;
+}
