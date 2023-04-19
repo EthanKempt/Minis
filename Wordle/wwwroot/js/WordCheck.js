@@ -17,7 +17,12 @@ function checktheword(b) {
   }
   else {
     return false;
-  }
+    }
+
+}
+
+function wordRandom() {
+    return true;
 }
 
 const wordlist = [
