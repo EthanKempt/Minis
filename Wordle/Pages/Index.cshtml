@@ -39,7 +39,10 @@
                 <button id="change" class='btn btn-outline-secondary' type='button' onclick="switchto()">Change Word</button>
             </div>
             <div class="row justify-content-end">
-                <button id="random" class='btn btn-outline-secondary' type='button' onclick="randomize()">Random</button>
+                <button id="random" class='btn btn-outline-secondary' type='button' onclick="randomize()">Randomize</button>
+            </div>
+            <div class="row justify-content-end">
+                <button id="comp" class='btn btn-outline-secondary' type='button' onclick="compete()">Competetive</button>
             </div>
         </div>
     </div>
@@ -133,7 +136,16 @@
         right: -1%;
         width: 10%;
     }
+
+    #comp {
+        position: fixed;
+        top: 34%;
+        right: -1%;
+        width: 10%;
+    }
 </style>
+
+
 
 <script src="~/js/WordCheck.js"></script>
 <script src="~/js/WordTest.js"></script>
@@ -349,6 +361,13 @@
                 }
             }
         }
+    }
+
+    function compete() {
+        var compButton = document.getElementById('comp');
+        compButton.blur();
+
+
     }
 
     //enter
