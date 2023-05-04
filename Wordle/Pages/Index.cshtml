@@ -7,8 +7,19 @@
 <div class="container text-center">
     <div class="row align-items-start">
         <div class="col-lg">
-            <div class="col align-self-center">
-                One of three columns
+            <div class="col align-self-center position-absolute bottom-50">
+
+                <div id="timeCard" class="card" style="width: 18rem;">
+                    <div class="card-header">
+                        Timer:
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Time: 2:00</li>
+                        <li class="list-group-item">Score: 0</li>
+                        <li class="list-group-item" id="startLine"><button type="button" class="btn btn-primary"  id="startBut" onclick="startTime()">Start</button></li>
+                        <li class="list-group-item" id="resetLine"><button type="button" class="btn btn-danger" id="resetBut" onclick="resetTime()">Reset</button></li>
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="col">
@@ -100,6 +111,7 @@
         margin-bottom: 5px;
         background-color: #d1d1cf;
         outline-width: 0px;
+        color: black;
     }
 
     h1 {
@@ -146,6 +158,10 @@
         top: 34%;
         right: -1%;
         width: 10%;
+    }
+
+    .timer {
+        width: 200px;
     }
 </style>
 
@@ -367,11 +383,6 @@
         }
     }
 
-    function compete() {
-        var compButton = document.getElementById('comp');
-        compButton.blur();
-    }
-
     //enter
     function enter() {
         if (currentB == 6 && currentL != 7 && checkword()) {
@@ -444,5 +455,40 @@
                 }
             }
         }
+    }
+
+    document.getElementById('timeCard').style.visibility = 'hidden';
+
+    function compete() {
+        var compButton = document.getElementById('comp');
+        compButton.blur();
+        var card = document.getElementById('timeCard');
+        
+
+        if (card.style.visibility == 'visible') {
+            card.style.visibility = 'hidden';
+        }
+        else {
+            card.style.visibility = 'visible';
+        }
+    }
+
+    document.getElementById('resetLine').style.display = 'none';
+
+    function startTime() {
+        startLine = document.getElementById('startLine');
+        resetLine = document.getElementById('startLine');
+        startBut = document.getElementById('startBut');
+        resetBut = document.getElementById('resetBut');
+        startBut.blur();
+        startLine.style.display = 'none';
+        startLine.style.display = 'inline';
+        randomize();
+    }
+
+    function resetTime() {
+        startBut = document.getElementById('startBut');
+        resetBut = document.getElementById('resetBut');
+        resetBut.blur();
     }
 </script>
