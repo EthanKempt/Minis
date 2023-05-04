@@ -1,168 +1,172 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Words";
+  ViewData["Title"] = "Words";
 }
 
 <div class="container text-center">
-    <div class="row align-items-start">
-        <div class="col-lg">
-            <div class="col align-self-center position-absolute bottom-50">
+  <div class="row align-items-start">
+    <div class="col-lg">
+      <div class="col align-self-center position-absolute bottom-50">
 
-                <div id="timeCard" class="card" style="width: 18rem;">
-                    <div class="card-header">
-                        Timer:
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Time: 2:00</li>
-                        <li class="list-group-item">Score: 0</li>
-                        <li class="list-group-item" id="startLine"><button type="button" class="btn btn-primary"  id="startBut" onclick="startTime()">Start</button></li>
-                        <li class="list-group-item" id="resetLine"><button type="button" class="btn btn-danger" id="resetBut" onclick="resetTime()">Reset</button></li>
-                    </ul>
-                </div>
-            </div>
+        <div id="timeCard" class="card" style="width: 18rem;">
+          <div class="card-header">
+            Timer:
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><p id="time">Time: 200</p></li>
+            <li class="list-group-item">Score: 0</li>
+            <li class="list-group-item" id="startLine"><button type="button" class="btn btn-primary" id="startBut" onclick="startTime()">Start</button></li>
+            <li class="list-group-item" id="resetLine"><button type="button" class="btn btn-danger" id="resetBut" onclick="resetTime()">Reset</button></li>
+          </ul>
         </div>
-        <div class="col">
-            <div class="text-center">
-                <h1 class="display-4">Words</h1>
-
-                <input type="text" maxlength="1" class="Format line1" id="l1b1"> <input type="text" maxlength="1" class="Format line1" id="l1b2"> <input type="text" maxlength="1" class="Format line1" id="l1b3"> <input type="text" maxlength="1" class="Format line1" id="l1b4"> <input type="text" maxlength="1" class="Format line1" id="l1b5">
-                <p> </p>
-                <input type="text" maxlength="1" class="Format line2" id="l2b1"> <input type="text" maxlength="1" class="Format line2" id="l2b2"> <input type="text" maxlength="1" class="Format line2" id="l2b3"> <input type="text" maxlength="1" class="Format line2" id="l2b4"> <input type="text" maxlength="1" class="Format line2" id="l2b5">
-                <p> </p>
-                <input type="text" maxlength="1" class="Format line3" id="l3b1"> <input type="text" maxlength="1" class="Format line3" id="l3b2"> <input type="text" maxlength="1" class="Format line3" id="l3b3"> <input type="text" maxlength="1" class="Format line3" id="l3b4"> <input type="text" maxlength="1" class="Format line3" id="l3b5">
-                <p> </p>
-                <input type="text" maxlength="1" class="Format line4" id="l4b1"> <input type="text" maxlength="1" class="Format line4" id="l4b2"> <input type="text" maxlength="1" class="Format line4" id="l4b3"> <input type="text" maxlength="1" class="Format line4" id="l4b4"> <input type="text" maxlength="1" class="Format line4" id="l4b5">
-                <p> </p>
-                <input type="text" maxlength="1" class="Format line5" id="l5b1"> <input type="text" maxlength="1" class="Format line5" id="l5b2"> <input type="text" maxlength="1" class="Format line5" id="l5b3"> <input type="text" maxlength="1" class="Format line5" id="l5b4"> <input type="text" maxlength="1" class="Format line5" id="l5b5">
-                <p> </p>
-                <input type="text" maxlength="1" class="Format line6" id="l6b1"> <input type="text" maxlength="1" class="Format line6" id="l6b2"> <input type="text" maxlength="1" class="Format line6" id="l6b3"> <input type="text" maxlength="1" class="Format line6" id="l6b4"> <input type="text" maxlength="1" class="Format line6" id="l6b5">
-            </div>
-        </div>
-        <div class="col-lg align-self-center">
-            <div class="input-group mb-3">
-
-                <input type="text" class="form-control" placeholder="Custom word" maxlength="5" id="inp" hidden autofocus autocomplete="off" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)" onpaste="return false">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" onclick="cancel()" id='cancel' hidden>Cancel</button>
-                </div>
-                <div class="input-group-append">
-                    <button class="btn btn-outline-primary" type="button" onclick="submitted()" id='sub' hidden>Submit</button>
-                </div>
-            </div>
-            <div class="row justify-content-end">
-                <button id="change" class='btn btn-outline-secondary' type='button' onclick="switchto()">Change Word</button>
-            </div>
-            <div class="row justify-content-end">
-                <button id="random" class='btn btn-outline-secondary' type='button' onclick="randomize()">Randomize</button>
-            </div>
-            <div class="row justify-content-end">
-                <button id="comp" class='btn btn-outline-secondary' type='button' onclick="compete()">Competetive</button>
-            </div>
-        </div>
+      </div>
     </div>
+    <div class="col">
+      <div class="text-center">
+        <h1 class="display-4">Words</h1>
+
+        <input type="text" maxlength="1" class="Format line1" id="l1b1"> <input type="text" maxlength="1" class="Format line1" id="l1b2"> <input type="text" maxlength="1" class="Format line1" id="l1b3"> <input type="text" maxlength="1" class="Format line1" id="l1b4"> <input type="text" maxlength="1" class="Format line1" id="l1b5">
+        <p> </p>
+        <input type="text" maxlength="1" class="Format line2" id="l2b1"> <input type="text" maxlength="1" class="Format line2" id="l2b2"> <input type="text" maxlength="1" class="Format line2" id="l2b3"> <input type="text" maxlength="1" class="Format line2" id="l2b4"> <input type="text" maxlength="1" class="Format line2" id="l2b5">
+        <p> </p>
+        <input type="text" maxlength="1" class="Format line3" id="l3b1"> <input type="text" maxlength="1" class="Format line3" id="l3b2"> <input type="text" maxlength="1" class="Format line3" id="l3b3"> <input type="text" maxlength="1" class="Format line3" id="l3b4"> <input type="text" maxlength="1" class="Format line3" id="l3b5">
+        <p> </p>
+        <input type="text" maxlength="1" class="Format line4" id="l4b1"> <input type="text" maxlength="1" class="Format line4" id="l4b2"> <input type="text" maxlength="1" class="Format line4" id="l4b3"> <input type="text" maxlength="1" class="Format line4" id="l4b4"> <input type="text" maxlength="1" class="Format line4" id="l4b5">
+        <p> </p>
+        <input type="text" maxlength="1" class="Format line5" id="l5b1"> <input type="text" maxlength="1" class="Format line5" id="l5b2"> <input type="text" maxlength="1" class="Format line5" id="l5b3"> <input type="text" maxlength="1" class="Format line5" id="l5b4"> <input type="text" maxlength="1" class="Format line5" id="l5b5">
+        <p> </p>
+        <input type="text" maxlength="1" class="Format line6" id="l6b1"> <input type="text" maxlength="1" class="Format line6" id="l6b2"> <input type="text" maxlength="1" class="Format line6" id="l6b3"> <input type="text" maxlength="1" class="Format line6" id="l6b4"> <input type="text" maxlength="1" class="Format line6" id="l6b5">
+      </div>
+    </div>
+    <div class="col-lg align-self-center">
+      <div class="input-group mb-3">
+
+        <input type="text" class="form-control" placeholder="Custom word" maxlength="5" id="inp" hidden autofocus autocomplete="off" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)" onpaste="return false">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button" onclick="cancel()" id='cancel' hidden>Cancel</button>
+        </div>
+        <div class="input-group-append">
+          <button class="btn btn-outline-primary" type="button" onclick="submitted()" id='sub' hidden>Submit</button>
+        </div>
+      </div>
+      <div class="row justify-content-end">
+        <button id="change" class='btn btn-outline-secondary' type='button' onclick="switchto()">Change Word</button>
+      </div>
+      <div class="row justify-content-end">
+        <button id="random" class='btn btn-outline-secondary' type='button' onclick="randomize()">Randomize</button>
+      </div>
+      <div class="row justify-content-end">
+        <button id="comp" class='btn btn-outline-secondary' type='button' onclick="compete()">Competetive</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <br>
 <div class="text-center">
-    <button onclick="clck('Q')" type='button' class='keyboard' id='Q'>Q</button>
-    <button onclick="clck('W')" type='button' class='keyboard' id='W'>W</button>
-    <button onclick="clck('E')" type='button' class='keyboard' id='E'>E</button>
-    <button onclick="clck('R')" type='button' class='keyboard' id='R'>R</button>
-    <button onclick="clck('T')" type='button' class='keyboard' id='T'>T</button>
-    <button onclick="clck('Y')" type='button' class='keyboard' id='Y'>Y</button>
-    <button onclick="clck('U')" type='button' class='keyboard' id='U'>U</button>
-    <button onclick="clck('I')" type='button' class='keyboard' id='I'>I</button>
-    <button onclick="clck('O')" type='button' class='keyboard' id='O'>O</button>
-    <button onclick="clck('P')" type='button' class='keyboard' id='P'>P</button>
-    <br>
-    <button onclick="clck('A')" type='button' class='keyboard' id='A'>A</button>
-    <button onclick="clck('S')" type='button' class='keyboard' id='S'>S</button>
-    <button onclick="clck('D')" type='button' class='keyboard' id='D'>D</button>
-    <button onclick="clck('F')" type='button' class='keyboard' id='F'>F</button>
-    <button onclick="clck('G')" type='button' class='keyboard' id='G'>G</button>
-    <button onclick="clck('H')" type='button' class='keyboard' id='H'>H</button>
-    <button onclick="clck('J')" type='button' class='keyboard' id='J'>J</button>
-    <button onclick="clck('K')" type='button' class='keyboard' id='K'>K</button>
-    <button onclick="clck('L')" type='button' class='keyboard' id='L'>L</button>
-    <br>
-    <button onclick="clck('Z')" type='button' class='keyboard' id='Z'>Z</button>
-    <button onclick="clck('X')" type='button' class='keyboard' id='X'>X</button>
-    <button onclick="clck('C')" type='button' class='keyboard' id='C'>C</button>
-    <button onclick="clck('V')" type='button' class='keyboard' id='V'>V</button>
-    <button onclick="clck('B')" type='button' class='keyboard' id='B'>B</button>
-    <button onclick="clck('N')" type='button' class='keyboard' id='N'>N</button>
-    <button onclick="clck('M')" type='button' class='keyboard' id='M'>M</button>
+  <button onclick="clck('Q')" type='button' class='keyboard' id='Q'>Q</button>
+  <button onclick="clck('W')" type='button' class='keyboard' id='W'>W</button>
+  <button onclick="clck('E')" type='button' class='keyboard' id='E'>E</button>
+  <button onclick="clck('R')" type='button' class='keyboard' id='R'>R</button>
+  <button onclick="clck('T')" type='button' class='keyboard' id='T'>T</button>
+  <button onclick="clck('Y')" type='button' class='keyboard' id='Y'>Y</button>
+  <button onclick="clck('U')" type='button' class='keyboard' id='U'>U</button>
+  <button onclick="clck('I')" type='button' class='keyboard' id='I'>I</button>
+  <button onclick="clck('O')" type='button' class='keyboard' id='O'>O</button>
+  <button onclick="clck('P')" type='button' class='keyboard' id='P'>P</button>
+  <br>
+  <button onclick="clck('A')" type='button' class='keyboard' id='A'>A</button>
+  <button onclick="clck('S')" type='button' class='keyboard' id='S'>S</button>
+  <button onclick="clck('D')" type='button' class='keyboard' id='D'>D</button>
+  <button onclick="clck('F')" type='button' class='keyboard' id='F'>F</button>
+  <button onclick="clck('G')" type='button' class='keyboard' id='G'>G</button>
+  <button onclick="clck('H')" type='button' class='keyboard' id='H'>H</button>
+  <button onclick="clck('J')" type='button' class='keyboard' id='J'>J</button>
+  <button onclick="clck('K')" type='button' class='keyboard' id='K'>K</button>
+  <button onclick="clck('L')" type='button' class='keyboard' id='L'>L</button>
+  <br>
+  <button onclick="clck('Z')" type='button' class='keyboard' id='Z'>Z</button>
+  <button onclick="clck('X')" type='button' class='keyboard' id='X'>X</button>
+  <button onclick="clck('C')" type='button' class='keyboard' id='C'>C</button>
+  <button onclick="clck('V')" type='button' class='keyboard' id='V'>V</button>
+  <button onclick="clck('B')" type='button' class='keyboard' id='B'>B</button>
+  <button onclick="clck('N')" type='button' class='keyboard' id='N'>N</button>
+  <button onclick="clck('M')" type='button' class='keyboard' id='M'>M</button>
 </div>
 
 <style>
-    .keyboard {
-        display: inline-block;
-        border-style: solid;
-        border-width: 0px;
-        border-radius: 5px;
-        font-size: 30px;
-        font-family: Courier;
-        font-weight: 900;
-        padding-right: 10px;
-        padding-left: 10px;
-        padding-top: 1px;
-        padding-bottom: 1px;
-        margin-bottom: 5px;
-        background-color: #d1d1cf;
-        outline-width: 0px;
-        color: black;
-    }
+  .keyboard {
+      display: inline-block;
+      border-style: solid;
+      border-width: 0px;
+      border-radius: 5px;
+      font-size: 30px;
+      font-family: Courier;
+      font-weight: 900;
+      padding-right: 10px;
+      padding-left: 10px;
+      padding-top: 1px;
+      padding-bottom: 1px;
+      margin-bottom: 5px;
+      background-color: #d1d1cf;
+      outline-width: 0px;
+      color: black;
+  }
 
-    h1 {
-        font-family: Stencil Std;
-        font-weight: 900;
-    }
+  h1 {
+      font-family: Stencil Std;
+      font-weight: 900;
+  }
 
-    .Format {
-        width: 50px;
-        height: 50px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        padding-left: 00px;
-        padding-right: 00px;
-        caret-color: transparent;
-        display: inline;
-        border: 2px solid rgba(122, 122, 122, 0.45);
-        text-align: center;
-        font-size: 35px;
-        font-family: Arial;
-        pointer-events: none;
-    }
+  .Format {
+      width: 50px;
+      height: 50px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 00px;
+      padding-right: 00px;
+      caret-color: transparent;
+      display: inline;
+      border: 2px solid rgba(122, 122, 122, 0.45);
+      text-align: center;
+      font-size: 35px;
+      font-family: Arial;
+      pointer-events: none;
+  }
 
-    input:focus, textarea:focus, select:focus {
-        outline: none;
-    }
+  input:focus, textarea:focus, select:focus {
+      outline: none;
+  }
 
-    #change {
-        position: fixed;
-        top: 20%;
-        right: -1%;
-        width: 10%;
-    }
+  #change {
+      position: fixed;
+      top: 20%;
+      right: -1%;
+      width: 10%;
+  }
 
-    #random {
-        position: fixed;
-        top: 27%;
-        right: -1%;
-        width: 10%;
-    }
+  #random {
+      position: fixed;
+      top: 27%;
+      right: -1%;
+      width: 10%;
+  }
 
-    #comp {
-        position: fixed;
-        top: 34%;
-        right: -1%;
-        width: 10%;
-    }
+  #comp {
+      position: fixed;
+      top: 34%;
+      right: -1%;
+      width: 10%;
+  }
 
-    .timer {
-        width: 200px;
-    }
+  .timer {
+      width: 200px;
+  }
+
+  #timeCard {
+      display: none;
+  }
 </style>
 
 
@@ -171,324 +175,338 @@
 <script src="~/js/WordTest.js"></script>
 
 <script>
-    //variables
-    var currentB = 1;
-    var currentL = 1;
-    window.word = 'RADIO';
-    window.init = false;
+  //variables
+  var currentB = 1;
+  var currentL = 1;
+  window.word = 'RADIO';
+  window.init = false;
 
-    //fill a box
-    document.addEventListener('keyup', (event) => {
-        var key = event.key;
-        var size = key.length;
+  //fill a box
+  document.addEventListener('keyup', (event) => {
+      var key = event.key;
+      var size = key.length;
 
-        if (size == 1 && key.match(/[A-z]/)) {
-            if (init == true) {
-                typetxt();
-            }
-            else {
-                var upper = key.toUpperCase();
-                type(upper);
-            }
-        }
+      if (size == 1 && key.match(/[A-z]/)) {
+          if (init == true) {
+              typetxt();
+          }
+          else {
+              var upper = key.toUpperCase();
+              type(upper);
+          }
+      }
 
-        if (key === 'Backspace') {
-            if (init == true) {
-                backtxt();
-            }
-            else {
-                backspace();
-            }
-        }
+      if (key === 'Backspace') {
+          if (init == true) {
+              backtxt();
+          }
+          else {
+              backspace();
+          }
+      }
 
-        if (key === 'Enter')
-            if (init == true) {
-                enterin();
-            }
-            else {
-                enter();
-            }
-    }, false);
+      if (key === 'Enter')
+          if (init == true) {
+              enterin();
+          }
+          else {
+              enter();
+          }
+  }, false);
 
-    //onscreen keyboard
-    function clck(letter) {
-        type(letter);
+  //onscreen keyboard
+  function clck(letter) {
+      type(letter);
+  }
+
+  //type
+  function doit() {
+      window.init = true;
+  }
+
+  function submitted() {
+      var prop = document.getElementById('inp').value.toUpperCase();
+      if (prop.length == 5) {
+          if (checktheword(prop) == true) {
+              window.word = prop;
+              window.init = false;
+              var txtbox = document.getElementById('inp');
+              var subbut = document.getElementById('sub');
+              var cancelbut = document.getElementById('cancel');
+              var changer = document.getElementById('change');
+              txtbox.hidden = true;
+              subbut.hidden = true;
+              cancelbut.hidden = true;
+              changer.hidden = false;
+              txtbox.value = '';
+              var elements = document.getElementsByClassName('keyboard');
+              for (var i = 0; i < elements.length; i++) {
+                  elements[i].style.backgroundColor = "#d1d1cf";
+              }
+              var clearL = 1;
+              var clearB = 1;
+              window.currentB = 1;
+              window.currentL = 1;
+
+
+
+              clearall();
+
+              function clearall() {
+                  if (clearB <= 5) {
+                      document.getElementById('l' + clearL + 'b' + clearB).value = '';
+                      document.getElementById('l' + clearL + 'b' + clearB).style.backgroundColor = 'white';
+                      clearB++;
+                      if (clearB != 6) {
+                          clearall();
+                      }
+                      else {
+                          clearL++;
+                          clearB--;
+                          clearB--;
+                          clearB--;
+                          clearB--;
+                          clearB--;
+                          clearall();
+                      }
+                  }
+              }
+          }
+      }
+  }
+
+  function cancel() {
+      window.init = false;
+      var txtbox = document.getElementById('inp');
+      var subbut = document.getElementById('sub');
+      var cancelbut = document.getElementById('cancel');
+      var changer = document.getElementById('change');
+      txtbox.value = '';
+
+      txtbox.hidden = true;
+      subbut.hidden = true;
+      cancelbut.hidden = true;
+      changer.hidden = false;
+  }
+
+  function type(letter) {
+      if (currentB != 6 && init == false) {
+          var box = document.getElementById(move1()).value = letter;
+      }
+  }
+
+  //move on type
+  function move1() {
+      var input = 'l' + currentL + 'b' + currentB;
+      currentB++;
+      return input;
+  }
+
+  //backspace
+  function backspace() {
+      if (currentB >= 2) {
+          currentB -= 1;
+          var input = 'l' + currentL + 'b' + currentB;
+          var del = document.getElementById(input).value = null;
+          return input;
+      }
+      else {
+          return;
+      }
+  }
+
+  function enterin() {
+      submitted();
+  }
+
+  function switchto() {
+      var txtbox = document.getElementById('inp');
+      var subbut = document.getElementById('sub');
+      var cancelbut = document.getElementById('cancel');
+      var changer = document.getElementById('change');
+      txtbox.hidden = false;
+      subbut.hidden = false;
+      cancelbut.hidden = false;
+      changer.hidden = true;
+      window.init = true;
+  }
+
+  function checkword() {
+      var check1 = document.getElementById('l' + currentL + 'b1').value;
+      var check2 = document.getElementById('l' + currentL + 'b2').value;
+      var check3 = document.getElementById('l' + currentL + 'b3').value;
+      var check4 = document.getElementById('l' + currentL + 'b4').value;
+      var check5 = document.getElementById('l' + currentL + 'b5').value;
+      var checkword = check1 + check2 + check3 + check4 + check5;
+
+      if (checkit(checkword) == true) {
+          return true;
+      }
+      else {
+          return false;
+      }
+  }
+
+  function randomize() {
+      var randomNumb = Math.floor(Math.random() * testlist.length);
+      var randomWord = testlist[randomNumb];
+      window.word = randomWord.toUpperCase();
+      var randButton = document.getElementById('random');
+      randButton.blur();
+
+
+      var elements = document.getElementsByClassName('keyboard');
+      for (var i = 0; i < elements.length; i++) {
+          elements[i].style.backgroundColor = "#d1d1cf";
+      }
+      var clearL = 1;
+      var clearB = 1;
+      window.currentB = 1;
+      window.currentL = 1;
+
+      clearall();
+
+      function clearall() {
+          if (clearB <= 5) {
+              document.getElementById('l' + clearL + 'b' + clearB).value = '';
+              document.getElementById('l' + clearL + 'b' + clearB).style.backgroundColor = 'white';
+              clearB++;
+              if (clearB != 6) {
+                  clearall();
+              }
+              else {
+                  clearL++;
+                  clearB--;
+                  clearB--;
+                  clearB--;
+                  clearB--;
+                  clearB--;
+                  clearall();
+              }
+          }
+      }
+  }
+
+  //enter
+  function enter() {
+      if (currentB == 6 && currentL != 7 && checkword()) {
+
+          var running = 0;
+          var runb = document.getElementsByClassName('line' + currentL)[running].value;
+          var runa = word[running];
+          var correct = 0;
+
+          check();
+
+          function check() {
+
+              if (running != 5) {
+                  var runb = document.getElementsByClassName('line' + currentL)[running].value;
+                  var runa = word[running];
+                  var runbutton = running + 1;
+
+                  if (runb == runa) {
+
+                      document.getElementById('l' + currentL + 'b' + runbutton).style.backgroundColor = 'green'; //'#6aaa64'; //green
+                      document.getElementById(runb).style.backgroundColor = 'green'; //'#6aaa64'; //green
+                      correct++;
+                      if (correct == 5) {
+                          currentL = 10;
+                      }
+                  }
+
+                  else {
+
+                      var let1 = word[0];
+                      var let2 = word[1];
+                      var let3 = word[2];
+                      var let4 = word[3];
+                      var let5 = word[4];
+                      var letarray = [let1, let2, let3, let4, let5];
+                      var guesslet = document.getElementById(runb);
+
+                      if (runb == let1 || runb == let2 || runb == let3 || runb == let4 || runb == let5) {
+
+                          document.getElementById('l' + currentL + 'b' + runbutton).style.backgroundColor = '#c9b459'; //yellow
+
+                          if (guesslet.style.backgroundColor != 'green') {  //!green
+                              document.getElementById(runb).style.backgroundColor = '#c9b459'; //yellow
+                          }
+
+                      }
+                      else {
+                          document.getElementById('l' + currentL + 'b' + runbutton).style.backgroundColor = '#787c7f'; //dark grey
+                          document.getElementById(runb).style.backgroundColor = '#787c7f'; //dark grey
+
+                      }
+
+                  }
+
+                  running++;
+                  check();
+              }
+
+              else {
+                  finish();
+              }
+          }
+
+          function finish() {
+              currentL++;
+              currentB = 1;
+              if (currentL >= 7 && correct <= 4) {
+                  alert(word);
+              }
+          }
+      }
+  }
+
+  function compete() {
+      var compButton = document.getElementById('comp');
+      compButton.blur();
+      var card = document.getElementById('timeCard');
+
+      if (card.style.display == 'block') {
+          card.style.display = 'none';
+      }
+      else {
+          card.style.display = 'block';
+      }
+  }
+
+  document.getElementById('resetLine').style.display = 'none';
+
+  function startTime() {
+      startLine = document.getElementById('startLine');
+      resetLine = document.getElementById('resetLine');
+      startBut = document.getElementById('startBut');
+      resetBut = document.getElementById('resetBut');
+      startBut.blur();
+      startLine.style.display = 'none';
+      resetLine.style.display = 'block';
+      window.sec = 200;
+      window.mil = '00';
+      beginTime();
+      randomize();
+  }
+
+  function resetTime() {
+      startLine = document.getElementById('startLine');
+      resetLine = document.getElementById('resetLine');
+      startBut = document.getElementById('startBut');
+      resetBut = document.getElementById('resetBut');
+      resetBut.blur();
+      startLine.style.display = 'block';
+      resetLine.style.display = 'none';
+  }
+
+  function beginTime() {
+    document.getElementById('time').innerHTML = 'Time: ' + sec + ':' + mil;
+    if (sec > 0) {
+      sec = sec - 1;
+      mil = mil - 1;
+      sleep(1);
+      beginTime();
     }
-
-    //type
-    function doit() {
-        window.init = true;
-    }
-
-    function submitted() {
-        var prop = document.getElementById('inp').value.toUpperCase();
-        if (prop.length == 5) {
-            if (checktheword(prop) == true) {
-                window.word = prop;
-                window.init = false;
-                var txtbox = document.getElementById('inp');
-                var subbut = document.getElementById('sub');
-                var cancelbut = document.getElementById('cancel');
-                var changer = document.getElementById('change');
-                txtbox.hidden = true;
-                subbut.hidden = true;
-                cancelbut.hidden = true;
-                changer.hidden = false;
-                txtbox.value = '';
-                var elements = document.getElementsByClassName('keyboard');
-                for (var i = 0; i < elements.length; i++) {
-                    elements[i].style.backgroundColor = "#d1d1cf";
-                }
-                var clearL = 1;
-                var clearB = 1;
-                window.currentB = 1;
-                window.currentL = 1;
-
-
-
-                clearall();
-
-                function clearall() {
-                    if (clearB <= 5) {
-                        document.getElementById('l' + clearL + 'b' + clearB).value = '';
-                        document.getElementById('l' + clearL + 'b' + clearB).style.backgroundColor = 'white';
-                        clearB++;
-                        if (clearB != 6) {
-                            clearall();
-                        }
-                        else {
-                            clearL++;
-                            clearB--;
-                            clearB--;
-                            clearB--;
-                            clearB--;
-                            clearB--;
-                            clearall();
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    function cancel() {
-        window.init = false;
-        var txtbox = document.getElementById('inp');
-        var subbut = document.getElementById('sub');
-        var cancelbut = document.getElementById('cancel');
-        var changer = document.getElementById('change');
-        txtbox.value = '';
-
-        txtbox.hidden = true;
-        subbut.hidden = true;
-        cancelbut.hidden = true;
-        changer.hidden = false;
-    }
-
-    function type(letter) {
-        if (currentB != 6 && init == false) {
-            var box = document.getElementById(move1()).value = letter;
-        }
-    }
-
-    //move on type
-    function move1() {
-        var input = 'l' + currentL + 'b' + currentB;
-        currentB++;
-        return input;
-    }
-
-    //backspace
-    function backspace() {
-        if (currentB >= 2) {
-            currentB -= 1;
-            var input = 'l' + currentL + 'b' + currentB;
-            var del = document.getElementById(input).value = null;
-            return input;
-        }
-        else {
-            return;
-        }
-    }
-
-    function enterin() {
-        submitted();
-    }
-
-    function switchto() {
-        var txtbox = document.getElementById('inp');
-        var subbut = document.getElementById('sub');
-        var cancelbut = document.getElementById('cancel');
-        var changer = document.getElementById('change');
-        txtbox.hidden = false;
-        subbut.hidden = false;
-        cancelbut.hidden = false;
-        changer.hidden = true;
-        window.init = true;
-    }
-
-    function checkword() {
-        var check1 = document.getElementById('l' + currentL + 'b1').value;
-        var check2 = document.getElementById('l' + currentL + 'b2').value;
-        var check3 = document.getElementById('l' + currentL + 'b3').value;
-        var check4 = document.getElementById('l' + currentL + 'b4').value;
-        var check5 = document.getElementById('l' + currentL + 'b5').value;
-        var checkword = check1 + check2 + check3 + check4 + check5;
-
-        if (checkit(checkword) == true) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-
-    function randomize() {
-        var randomNumb = Math.floor(Math.random() * testlist.length);
-        var randomWord = testlist[randomNumb];
-        window.word = randomWord.toUpperCase();
-        var randButton = document.getElementById('random');
-        randButton.blur();
-
-
-        var elements = document.getElementsByClassName('keyboard');
-        for (var i = 0; i < elements.length; i++) {
-            elements[i].style.backgroundColor = "#d1d1cf";
-        }
-        var clearL = 1;
-        var clearB = 1;
-        window.currentB = 1;
-        window.currentL = 1;
-
-        clearall();
-
-        function clearall() {
-            if (clearB <= 5) {
-                document.getElementById('l' + clearL + 'b' + clearB).value = '';
-                document.getElementById('l' + clearL + 'b' + clearB).style.backgroundColor = 'white';
-                clearB++;
-                if (clearB != 6) {
-                    clearall();
-                }
-                else {
-                    clearL++;
-                    clearB--;
-                    clearB--;
-                    clearB--;
-                    clearB--;
-                    clearB--;
-                    clearall();
-                }
-            }
-        }
-    }
-
-    //enter
-    function enter() {
-        if (currentB == 6 && currentL != 7 && checkword()) {
-
-            var running = 0;
-            var runb = document.getElementsByClassName('line' + currentL)[running].value;
-            var runa = word[running];
-            var correct = 0;
-
-            check();
-
-            function check() {
-
-                if (running != 5) {
-                    var runb = document.getElementsByClassName('line' + currentL)[running].value;
-                    var runa = word[running];
-                    var runbutton = running + 1;
-
-                    if (runb == runa) {
-
-                        document.getElementById('l' + currentL + 'b' + runbutton).style.backgroundColor = 'green'; //'#6aaa64'; //green
-                        document.getElementById(runb).style.backgroundColor = 'green'; //'#6aaa64'; //green
-                        correct++;
-                        if (correct == 5) {
-                            currentL = 10;
-                        }
-                    }
-
-                    else {
-
-                        var let1 = word[0];
-                        var let2 = word[1];
-                        var let3 = word[2];
-                        var let4 = word[3];
-                        var let5 = word[4];
-                        var letarray = [let1, let2, let3, let4, let5];
-                        var guesslet = document.getElementById(runb);
-
-                        if (runb == let1 || runb == let2 || runb == let3 || runb == let4 || runb == let5) {
-
-                            document.getElementById('l' + currentL + 'b' + runbutton).style.backgroundColor = '#c9b459'; //yellow
-
-                            if (guesslet.style.backgroundColor != 'green') {  //!green
-                                document.getElementById(runb).style.backgroundColor = '#c9b459'; //yellow
-                            }
-
-                        }
-                        else {
-                            document.getElementById('l' + currentL + 'b' + runbutton).style.backgroundColor = '#787c7f'; //dark grey
-                            document.getElementById(runb).style.backgroundColor = '#787c7f'; //dark grey
-
-                        }
-
-                    }
-
-                    running++;
-                    check();
-                }
-
-                else {
-                    finish();
-                }
-            }
-
-            function finish() {
-                currentL++;
-                currentB = 1;
-                if (currentL >= 7 && correct <= 4) {
-                    alert(word);
-                }
-            }
-        }
-    }
-
-    document.getElementById('timeCard').style.visibility = 'hidden';
-
-    function compete() {
-        var compButton = document.getElementById('comp');
-        compButton.blur();
-        var card = document.getElementById('timeCard');
-        
-
-        if (card.style.visibility == 'visible') {
-            card.style.visibility = 'hidden';
-        }
-        else {
-            card.style.visibility = 'visible';
-        }
-    }
-
-    document.getElementById('resetLine').style.display = 'none';
-
-    function startTime() {
-        startLine = document.getElementById('startLine');
-        resetLine = document.getElementById('startLine');
-        startBut = document.getElementById('startBut');
-        resetBut = document.getElementById('resetBut');
-        startBut.blur();
-        startLine.style.display = 'none';
-        startLine.style.display = 'inline';
-        randomize();
-    }
-
-    function resetTime() {
-        startBut = document.getElementById('startBut');
-        resetBut = document.getElementById('resetBut');
-        resetBut.blur();
-    }
+  }
 </script>
