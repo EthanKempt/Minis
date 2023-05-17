@@ -14,7 +14,7 @@
                         Timer:
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><p id="time">Time: 200</p></li>
+                        <li class="list-group-item"><p id="time">Time: 100</p></li>
                         <li class="list-group-item">Score: 0</li>
                         <li class="list-group-item" id="startLine"><button type="button" class="btn btn-primary" id="startBut" onclick="startTime()">Start</button></li>
                         <li class="list-group-item" id="resetLine"><button type="button" class="btn btn-danger" id="resetBut" onclick="resetTime()">Reset</button></li>
@@ -162,12 +162,10 @@
 
     .timer {
         width: 200px;
-        
     }
 
     #timeCard {
         display: none;
-        font-family: 'Lucida Console';
     }
 </style>
 
@@ -498,18 +496,26 @@
         resetBut.blur();
         startLine.style.display = 'block';
         resetLine.style.display = 'none';
-        window.going = false;
+        window.stopped = true;
+        window.tsec = 0;
+        window.tmil = 1;
     }
 
     function beginTime() {
         window.going = true;
-        var tsec = 99;
-        var tmil = 9;
-        var downloadTimer = setInterval(function () {
+        window.tsec = 9;
+        window.tmil = 9;
+        var wordTimer = setInterval(function () {
             if (going == true) {
-                if (tsec <= 0) {
-                    clearInterval(downloadTimer);
-                    document.getElementById("time").innerHTML = "Times Up!";
+                if (tsec <= 0 && tmil <= 0) {
+                    clearInterval(wordTimer);
+                    if (stopped != true) {
+                        document.getElementById("time").innerHTML = "Times Up!";
+                    }
+                    else {
+                        document.getElementById("time").innerHTML = "Time: 100";
+                        window.stopped = false;
+                    }
                 } else {
                     if (tmil == 1) {
                         tsec -= 1;
