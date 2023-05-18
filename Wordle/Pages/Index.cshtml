@@ -484,6 +484,11 @@
         startBut.blur();
         startLine.style.display = 'none';
         resetLine.style.display = 'block';
+
+        
+        window.newTime = new Date().getSeconds();
+        window.tsec = 1;
+
         beginTime();
         randomize();
     }
@@ -502,29 +507,15 @@
     }
 
     function beginTime() {
-        window.going = true;
-        window.tsec = 9;
-        window.tmil = 9;
-        var wordTimer = setInterval(function () {
-            if (going == true) {
-                if (tsec <= 0 && tmil <= 0) {
-                    clearInterval(wordTimer);
-                    if (stopped != true) {
-                        document.getElementById("time").innerHTML = "Times Up!";
-                    }
-                    else {
-                        document.getElementById("time").innerHTML = "Time: 100";
-                        window.stopped = false;
-                    }
-                } else {
-                    if (tmil == 1) {
-                        tsec -= 1;
-                        tmil = 9;
-                    }
-                    document.getElementById("time").innerHTML = 'Time: ' + tsec + '.' + tmil;
-                }
-                tmil -= 1;
-            }
-        }, 100);
+        var oldTime = new Date().getSeconds();
+
+        if (oldTime != newTime && tsec <= 10) {
+            tsec++;
+            newTime = new Date().getSeconds();
+            document.getElementById('time').innerHTML = tsec;
+        }
+        if (tsec <= 10) {
+            beginTime();
+        }
     }
 </script>
