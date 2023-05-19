@@ -485,7 +485,7 @@
         startLine.style.display = 'none';
         resetLine.style.display = 'block';
 
-        
+
         window.newTime = new Date().getSeconds();
         window.tsec = 1;
 
@@ -507,15 +507,15 @@
     }
 
     function beginTime() {
-        var oldTime = new Date().getSeconds();
-
-        if (oldTime != newTime && tsec <= 10) {
-            tsec++;
-            newTime = new Date().getSeconds();
-            document.getElementById('time').innerHTML = tsec;
-        }
-        if (tsec <= 10) {
-            beginTime();
+        let weirdVar = setInterval(timer, 10);
+        var a = new Date();
+        var b = a.getTime();
+        function timer() {
+            const d = new Date();
+            var e = d.getTime();
+            var c = e - b;
+            var f = 10000 - c;
+            document.getElementById("time").innerHTML = f;
         }
     }
 </script>
