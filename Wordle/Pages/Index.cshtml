@@ -507,7 +507,7 @@
     }
 
     function beginTime() {
-        let weirdVar = setInterval(timer, 10);
+        let weirdVar = setInterval(timer, 1);
         var a = new Date();
         var b = a.getTime();
         function timer() {
@@ -515,7 +515,9 @@
             var e = d.getTime();
             var c = e - b;
             var f = 10000 - c;
+            if (f >= 0) {
             document.getElementById("time").innerHTML = f;
+            }
         }
     }
 </script>
