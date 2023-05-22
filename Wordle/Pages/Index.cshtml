@@ -14,7 +14,7 @@
                         Timer:
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><p id="time">Time: 100</p></li>
+                        <li class="list-group-item"><p id="time">Time: 50.0</p></li>
                         <li class="list-group-item">Score: 0</li>
                         <li class="list-group-item" id="startLine"><button type="button" class="btn btn-primary" id="startBut" onclick="startTime()">Start</button></li>
                         <li class="list-group-item" id="resetLine"><button type="button" class="btn btn-danger" id="resetBut" onclick="resetTime()">Reset</button></li>
@@ -396,6 +396,11 @@
             var runa = word[running];
             var correct = 0;
 
+            var a = new Date();
+            window.b = a.getTime();
+
+            
+
             check();
 
             function check() {
@@ -501,27 +506,27 @@
         resetBut.blur();
         startLine.style.display = 'block';
         resetLine.style.display = 'none';
-        window.stopped = true;
-        window.tsec = 0;
-        window.tmil = 1;
+
+        clearInterval(weirdVar)
+        document.getElementById("time").innerHTML = 'Time: 50.0';
     }
 
     function beginTime() {
-        let weirdVar = setInterval(timer, 1);
+        window.weirdVar = setInterval(timer, 1);
         var a = new Date();
-        var b = a.getTime();
+        window.b = a.getTime();
         function timer() {
             const d = new Date();
             var e = d.getTime();
             var c = e - b;
-            var f = 100000 - c;
+            window.f = 50000 - c;
             if (f >= -1) {
 
                 const dA = Array.from(String(f), Number);
 
                 document.getElementById("time").innerHTML = f;
 
-            document.getElementById("time").innerHTML = dA[0] + '' + dA[1] + '.' + dA[2];
+            document.getElementById("time").innerHTML = 'Time: ' + dA[0] + '' + dA[1] + '.' + dA[2];
             }
             else {
                 document.getElementById("time").innerHTML = 'Times Up!';
