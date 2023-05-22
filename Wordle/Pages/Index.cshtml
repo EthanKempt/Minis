@@ -514,9 +514,17 @@
             const d = new Date();
             var e = d.getTime();
             var c = e - b;
-            var f = 10000 - c;
-            if (f >= 0) {
-            document.getElementById("time").innerHTML = f;
+            var f = 100000 - c;
+            if (f >= -1) {
+
+                const dA = Array.from(String(f), Number);
+
+                document.getElementById("time").innerHTML = f;
+
+            document.getElementById("time").innerHTML = dA[0] + '' + dA[1] + '.' + dA[2];
+            }
+            else {
+                document.getElementById("time").innerHTML = 'Times Up!';
             }
         }
     }
