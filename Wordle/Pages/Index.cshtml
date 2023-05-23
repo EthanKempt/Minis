@@ -15,7 +15,7 @@
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"><p id="time">Time: 50.0</p></li>
-                        <li class="list-group-item">Score: 0</li>
+                        <li class="list-group-item"><p id="score">Score: 0</p></li>
                         <li class="list-group-item" id="startLine"><button type="button" class="btn btn-primary" id="startBut" onclick="startTime()">Start</button></li>
                         <li class="list-group-item" id="resetLine"><button type="button" class="btn btn-danger" id="resetBut" onclick="resetTime()">Reset</button></li>
                     </ul>
@@ -387,6 +387,9 @@
         }
     }
 
+    window.f = 50000;
+    window.correct = 0;
+
     //enter
     function enter() {
         if (currentB == 6 && currentL != 7 && checkword()) {
@@ -396,12 +399,12 @@
             var runa = word[running];
             var correct = 0;
 
-            var a = new Date();
-            window.b = a.getTime();
-
-            
-
             check();
+
+            if (f <= 50000) {
+                var a = new Date();
+                window.b = a.getTime();
+            }
 
             function check() {
 
@@ -415,6 +418,21 @@
                         document.getElementById('l' + currentL + 'b' + runbutton).style.backgroundColor = 'green'; //'#6aaa64'; //green
                         document.getElementById(runb).style.backgroundColor = 'green'; //'#6aaa64'; //green
                         correct++;
+
+                        if (f < 50000) {
+                            alert(correct)
+                            alert(correct2)
+                            alert(correct3)
+                            window.correct3 = correct2 - correct;
+                            var scoreL = 7 - currentL;
+                            var score = f/1000 * correct3 * scoreL * 2;
+                            document.getElementById('score').innerHTML = 'Score: ' + Math.floor(score);
+                            if (correct == 5) {
+                                clearInterval(weirdVar);
+                            }
+                            window.correct2 = correct;
+                        }
+
                         if (correct == 5) {
                             currentL = 10;
                         }
@@ -490,10 +508,6 @@
         startLine.style.display = 'none';
         resetLine.style.display = 'block';
 
-
-        window.newTime = new Date().getSeconds();
-        window.tsec = 1;
-
         beginTime();
         randomize();
     }
@@ -509,6 +523,7 @@
 
         clearInterval(weirdVar)
         document.getElementById("time").innerHTML = 'Time: 50.0';
+        document.getElementById("score").innerHTML = 'Score: 0';
     }
 
     function beginTime() {
@@ -520,13 +535,10 @@
             var e = d.getTime();
             var c = e - b;
             window.f = 50000 - c;
+
             if (f >= -1) {
-
                 const dA = Array.from(String(f), Number);
-
-                document.getElementById("time").innerHTML = f;
-
-            document.getElementById("time").innerHTML = 'Time: ' + dA[0] + '' + dA[1] + '.' + dA[2];
+                document.getElementById("time").innerHTML = 'Time: ' + dA[0] + '' + dA[1] + '.' + dA[2];
             }
             else {
                 document.getElementById("time").innerHTML = 'Times Up!';
