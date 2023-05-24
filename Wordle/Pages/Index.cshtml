@@ -353,6 +353,7 @@
         window.word = randomWord.toUpperCase();
         var randButton = document.getElementById('random');
         randButton.blur();
+        alert(word);
 
 
         var elements = document.getElementsByClassName('keyboard');
@@ -420,17 +421,16 @@
                         correct++;
 
                         if (f < 50000) {
-                            alert(correct)
-                            alert(correct2)
-                            alert(correct3)
-                            window.correct3 = correct2 - correct;
                             var scoreL = 7 - currentL;
-                            var score = f/1000 * correct3 * scoreL * 2;
-                            document.getElementById('score').innerHTML = 'Score: ' + Math.floor(score);
+                            var score = f / 1000 * correct * scoreL * 2;
+                            var currentScore = document.getElementById('score').innerHTML;
+                            var result = currentScore.replace(/[^0-9]/g, "");
+                            if (result <= score) {
+                                document.getElementById('score').innerHTML = 'Score: ' + Math.floor(score);
+                            }
                             if (correct == 5) {
                                 clearInterval(weirdVar);
                             }
-                            window.correct2 = correct;
                         }
 
                         if (correct == 5) {
